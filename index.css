@@ -225,3 +225,25 @@ body {
     position: relative;
     top: 50px;
 }
+.record-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+.record-btn::after {
+    content: "🎵";
+    font-size: 20px;
+    color: white;
+    z-index: 2;
+}
