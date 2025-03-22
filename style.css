@@ -1,51 +1,86 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f2027; /* Dark background */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* About Section */
 #about {
-    background: linear-gradient(135deg, #1e1e1e, #292929); 
-    padding: 60px 20px;
+    background: linear-gradient(135deg, #1e1e1e, #292929);
+    padding: 80px 20px;
     border-radius: 15px;
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
     text-align: center;
-    margin-top: 40px;
+    margin: 40px auto;
     max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 #about:hover {
     transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 188, 212, 0.4);
 }
 
 #about h2 {
     color: #00bcd4;
-    font-weight: 700;
+    font-weight: 600;
     text-shadow: 2px 2px 10px rgba(0, 188, 212, 0.6);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .bio-text {
-    font-size: 18px;
-    color: #ccc;  
+    font-size: 1.1rem;
+    color: #ccc;
     max-width: 700px;
     text-align: center;
     line-height: 1.8;
     margin: 0 auto;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-#about img {
-    border: 4px solid white;
+.profile-img {
+    border: 4px solid #00bcd4;
     padding: 5px;
     width: 220px;
     height: 220px;
     object-fit: cover;
     border-radius: 50%;
     box-shadow: 0 6px 12px rgba(0, 188, 212, 0.4);
-    transition: transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out, border-color 0.4s ease-in-out;
 }
 
-#about img:hover {
+.profile-img:hover {
     transform: scale(1.15) rotate(5deg);
+    border-color: #ffeb3b; /* Change border color on hover */
 }
 
+/* Call-to-Action Button */
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #00bcd4, #0097a7);
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 188, 212, 0.6);
+}
+
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -57,6 +92,19 @@
     }
 }
 
-#about {
-    animation: fadeIn 1s ease-in-out;
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 188, 212, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 188, 212, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 188, 212, 0.6);
+    }
+}
+
+/* Add a glowing effect to the profile image */
+.profile-img {
+    animation: glow 3s infinite ease-in-out;
 }
