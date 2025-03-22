@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminance - Daily Quotes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Noto+Sans+Telugu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="luminance.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <marquee behavior="scroll" direction="left" scrollamount="8" class="super-marquee">
+        ✨ "Dharma always prevails; walk the path of truth with courage." – Bhagavad Gita |  
+        "सफलता उन्हीं को मिलती है जो खुद पर विश्वास रखते हैं!" – प्रेरणादायक विचार |  
+        "సత్యం నశించదు, ధర్మం ఎప్పుడూ గెలుస్తుంది!" – భగవద్గీత |  
+        "ನೀನು ನಂಬಿದ ಮಾರ್ಗದಲ್ಲಿ ಮುನ್ನಡೆ, ಯಶಸ್ಸು ನಿನಗೆ ಅನುಸರಿಸಲಿದೆ." – ಭಾರತೀಯ ತತ್ವಜ್ಞಾನ |  
+        "Hard work and perseverance shape destiny." – Timeless Wisdom |  
+        "Fear is the path to the dark side; conquer it with knowledge and strength." – Inspired by Star Wars |  
+        "హార్డ్ వర్క్ ఎవ్వరూ చూడరు, రిజల్ట్ మైతే అందరూ చూస్తారు!" – తెలుగు సినిమా |  
+        "सिंह वही बनता है जो अकेले भीड़ से लड़ने की ताकत रखता है!" – बॉलीवुड प्रेरणा |  
+        "ನೀನು ಸೋಲನ್ನು ಒಪ್ಪಿಕೊಂಡರೆ, ಅದೇ ನಿನ್ನ ಅಂತ್ಯ. ಆದರೆ ಹೋರಾಡಿದರೆ, ನಿನ್ನ ಹೊಸ ಆರಂಭ!" – ಕನ್ನಡ ಸಿನಿಮಾ ✨  
+    </marquee>
+    
+    
+    <section id="luminance">
+        <h2>Echoes of Enlightenment</h2>
+        <div class="quote-container">
+            <img src="Lord krishna.jpg" alt="Lord Krishna" class="god-image">
+            <div class="quote-text">"Whatever happened, happened for the good. Whatever is happening, is happening for the good. Whatever will happen, will also happen for the good."</div>
+            <div class="quote-text telugu">"ఏమి జరిగినా, అది మంచి కోసమే జరిగింది. ఏమి జరుగుతుందో, అది మంచి కోసమే జరుగుతుంది. ఏమి జరగబోతుందో, అది కూడా మంచి కోసమే జరుగుతుంది."</div>
+            <div class="quote-author">- Lord Krishna</div>
+        </div>
+        <button class="refresh-btn" onclick="refreshQuote()">I Need More Light</button>
+    </section>
+
+    <script>
+        const quotes = [
+            {
+                image: "Lord krishna.jpg",
+                english: "Whatever happened, happened for the good. Whatever is happening, is happening for the good. Whatever will happen, will also happen for the good.",
+                telugu: "ఏమి జరిగినా, అది మంచి కోసమే జరిగింది. ఏమి జరుగుతుందో, అది మంచి కోసమే జరుగుతుంది. ఏమి జరగబోతుందో, అది కూడా మంచి కోసమే జరుగుతుంది.",
+                author: "Lord Krishna"
+            },
+            {
+                image: "Lord shiva.jpeg",
+                english: "When the mind is pure, joy follows like a shadow that never leaves.",
+                telugu: "మనస్సు శుద్ధిగా ఉన్నప్పుడు, ఆనందం ఎప్పుడూ వదలని నీడలా అనుసరిస్తుంది.",
+                author: "Lord Shiva"
+            },
+            {
+                image: "Lord rama.jpeg",
+                english: "The soul is neither born, nor does it ever die; nor having once existed, does it ever cease to be. The soul is without birth, eternal, immortal, and ageless.",
+                telugu: "ఆత్మ పుట్టదు, చావదు; ఒకసారి ఉనికిలోకి వచ్చిన తర్వాత, అది ఎప్పటికీ అంతరించదు. ఆత్మ జన్మరహితమైనది, శాశ్వతమైనది, అమరమైనది మరియు వయస్సు లేనిది.",
+                author: "Lord Rama"
+            },
+            {
+                image: "aa1.jpg", 
+                english: "Pushpa, I don't bow down to anyone. My brand is my identity.",
+                telugu: "పుష్ప, నేను ఎవరికీ మోకరించను. నా బ్రాండే నా గుర్తింపు.",
+                author: "Pushpa Raj "
+            },
+            {
+                image: "aa1.jpg",  
+                english: "Flower blooms wherever it is thrown. Pushpa never bends.",
+                telugu: "పుష్ప ఎక్కడ పడితే అక్కడ పూస్తుంది. పుష్ప ఎప్పుడూ వంగదు.",
+                author: "Pushpa Raj "
+            },
+            {
+                image: "aa1.jpg",  
+                english: "I am not a flower, I am fire. I will burn anyone who tries to stop me.",
+                telugu: "నేను పుష్పం కాదు, నేను అగ్నిని. నన్ను ఆపడానికి ప్రయత్నించే వారిని నేను కాల్చివేస్తాను.",
+                author: "Pushpa Raj "
+            },
+            {
+                image: "NTR.jpg",  
+                english: "A true leader doesn't seek revenge, he seeks justice.",
+                telugu: "నిజమైన నాయకుడు ప్రతీకారం కోసం కాదు, న్యాయం కోసం పోరాడతాడు.",
+                author: "Veera Raghava "
+            },
+            {
+                image: "NTR.jpg",  
+                english: "Courage is not the absence of fear, but the triumph over it.",
+                telugu: "ధైర్యం అంటే భయం లేకపోవడం కాదు, దానిపై విజయం సాధించడం.",
+                author: "Veera Raghava"
+            },
+            {
+                image: "NTR.jpg",  
+                english: "If you want peace, prepare for war. Only the strong can bring peace.",
+                telugu: "మీరు శాంతి కోరుకుంటే, యుద్ధానికి సిద్ధం కండి. బలవంతులు మాత్రమే శాంతిని తీసుకురాగలరు.",
+                author: "Veera Raghava (Arvinda Sametha Veera Raghava)"
+            },
+            // Add more quotes here
+        ];
+
+        function refreshQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const quote = quotes[randomIndex];
+            document.querySelector('.god-image').src = quote.image; // Update the image
+            document.querySelector('.quote-text').textContent = `"${quote.english}"`; // Update English quote
+            document.querySelector('.quote-text.telugu').textContent = `"${quote.telugu}"`; // Update Telugu quote
+            document.querySelector('.quote-author').textContent = `- ${quote.author}`; // Update author
+        }
+    </script>
+    <footer class="footer bg-dark text-light text-center p-3">
+        <p>&copy; 2025 Keerti Krishna Sreenivas S | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
