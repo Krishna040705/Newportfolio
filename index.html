@@ -30,12 +30,13 @@ s0.parentNode.insertBefore(s1,s0);
 </audio>
 
 <button class="record-btn" id="play-music-btn"></button>
+<button class="record-btn1" id="bowing-head-btn" onclick="window.location.href='luminance.html'"></button>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const audio = document.getElementById("bg-music");
         const playBtn = document.getElementById("play-music-btn");
-        audio.volume = 0.05; // Set volume to 50%
+        audio.volume = 3; // Set volume to 50%
 
         playBtn.addEventListener("click", function () {
             if (audio.paused) {
@@ -61,7 +62,6 @@ s0.parentNode.insertBefore(s1,s0);
                 <li class="nav-item"><a class="nav-link" href="certificates.html">Certificates</a></li>
                 <li class="nav-item"><a class="nav-link" href="Keerti Krishna Sreenivas S - Resume.pdf" target="_blank">Resume</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html" target="_blank">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="luminance.html" target="">My Corner</a></li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
