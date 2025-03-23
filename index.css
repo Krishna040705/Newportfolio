@@ -340,3 +340,133 @@ body {
         opacity: 0.8;
     }
 }
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    /* Adjust the hero section */
+    .hero h1 {
+        font-size: 36px;
+        padding: 0 20px;
+    }
+
+    /* Adjust the navbar */
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .navbar-brand img {
+        width: 30px;
+    }
+
+    .navbar-toggler {
+        padding: 0.25rem 0.5rem;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .nav-item {
+        margin: 5px 0;
+    }
+
+    /* Adjust the projects section */
+    #projects h2 {
+        font-size: 28px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    .card-text {
+        font-size: 14px;
+    }
+
+    /* Adjust the footer */
+    .footer {
+        font-size: 12px;
+    }
+
+    /* Adjust the music and bowing head buttons */
+    .record-btn,
+    .record-btn1 {
+        bottom: 10px;
+        left: 10px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .record-btn1 {
+        bottom: 70px;
+    }
+
+    .record-btn::after,
+    .record-btn1::after {
+        font-size: 16px;
+    }
+
+    /* Adjust the profile picture */
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Adjust the dropdown menu */
+    .dropdown-menu {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .dropdown-item {
+        color: white;
+    }
+
+    .dropdown-item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjustments for very small screens */
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    #projects h2 {
+        font-size: 24px;
+    }
+
+    .card-title {
+        font-size: 18px;
+    }
+
+    .card-text {
+        font-size: 12px;
+    }
+
+    .footer {
+        font-size: 10px;
+    }
+
+    .record-btn,
+    .record-btn1 {
+        width: 35px;
+        height: 35px;
+    }
+
+    .record-btn1 {
+        bottom: 60px;
+    }
+
+    .record-btn::after,
+    .record-btn1::after {
+        font-size: 14px;
+    }
+}
