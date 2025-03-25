@@ -55,7 +55,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: url('tt.mp4') center/cover fixed;
+    background: url('') center/cover fixed;
     position: relative;
     overflow: hidden;
 }
@@ -469,4 +469,8 @@ body {
     .record-btn1::after {
         font-size: 14px;
     }
+}
+#Coursera{
+    position: relative;
+    left: 60px;
 }

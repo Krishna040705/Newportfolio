@@ -36,7 +36,7 @@ s0.parentNode.insertBefore(s1,s0);
     document.addEventListener("DOMContentLoaded", function () {
         const audio = document.getElementById("bg-music");
         const playBtn = document.getElementById("play-music-btn");
-        audio.volume = 3; // Set volume to 50%
+        audio.volume = 3; 
 
         playBtn.addEventListener("click", function () {
             if (audio.paused) {
@@ -96,7 +96,6 @@ s0.parentNode.insertBefore(s1,s0);
     </header>
 
     <script>
-        // Array of texts to be displayed
         const texts = [
             "Welcome to My Portfolio",
             "My Name is Keerti Krishna Sreenivas S",
@@ -115,9 +114,9 @@ s0.parentNode.insertBefore(s1,s0);
                 currentText += texts[currentIndex][charIndex];
                 textElement.textContent = currentText;
                 charIndex++;
-                setTimeout(typeText, 100); // Adjust speed of typing
+                setTimeout(typeText, 100); 
             } else {
-                setTimeout(changeText, 3000); // Pause before changing text
+                setTimeout(changeText, 3000); 
             }
         }
     
