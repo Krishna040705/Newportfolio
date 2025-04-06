@@ -133,7 +133,97 @@ s0.parentNode.insertBefore(s1,s0);
         </div>
     </div>
 </nav>
-
+<div class="version-banner">
+    <span class="version-text">Keerti Krishna Sreenivas S | v2.0</span>
+  </div>
+  
+ <!-- Add this right after <body> -->
+<div class="version-banner animate__animated animate__fadeIn animate__delay-1s">
+    <span class="version-text">Keerti Krishna Sreenivas S | v2.0</span>
+  </div>
+  
+  <style>
+  .version-banner {
+    position: fixed;
+    top: 100px;
+    right: 85px;
+    z-index: 1020;
+    background: linear-gradient(135deg, rgba(26,26,46,0.8), rgba(22,33,62,0.8));
+    backdrop-filter: blur(5px);
+    padding: 6px 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 0 15px rgba(0,188,212,0.3);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.5s ease-out;
+  }
+  
+  .version-text {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.9);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 5px rgba(0,188,212,0.5);
+  }
+  
+  /* Animation classes */
+  .animate-banner {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Light transition effect */
+  @keyframes lightPulse {
+    0% { box-shadow: 0 0 10px rgba(0,188,212,0.3); }
+    50% { box-shadow: 0 0 20px rgba(0,188,212,0.6); }
+    100% { box-shadow: 0 0 10px rgba(0,188,212,0.3); }
+  }
+  
+  .version-banner:hover {
+    animation: lightPulse 2s infinite;
+  }
+  
+  @media (max-width: 768px) {
+    .version-banner {
+      top: auto;
+      bottom: 20px;
+      right: 20px;
+      left: auto;
+      padding: 5px 12px;
+    }
+  }
+  </style>
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const versionBanner = document.querySelector('.version-banner');
+    const projectsSection = document.getElementById('projects');
+    
+    // Show banner with delay
+    setTimeout(() => {
+      versionBanner.classList.add('animate-banner');
+    }, 800);
+    
+    // Hide when scrolling to projects
+    window.addEventListener('scroll', function() {
+      const projectsPosition = projectsSection.getBoundingClientRect().top;
+      if (projectsPosition < window.innerHeight * 0.5) {
+        versionBanner.style.opacity = '0';
+        versionBanner.style.transform = 'translateY(-20px)';
+      }
+    });
+    
+    // Reappear when scrolling back up
+    window.addEventListener('scroll', function() {
+      const projectsPosition = projectsSection.getBoundingClientRect().top;
+      if (projectsPosition > window.innerHeight * 0.7) {
+        versionBanner.style.opacity = '1';
+        versionBanner.style.transform = 'translateY(0)';
+      }
+    });
+  });
+  </script>
 <header class="hero text-center text-light py-5">
     <div class="typing-container">
         <h1 id="changing-text" class="animate__animated animate__fadeIn"></h1>
