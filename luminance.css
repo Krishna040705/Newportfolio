@@ -1,13 +1,28 @@
 /* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #0f2027; /* Solid background color */
+    background: linear-gradient(to right, #1A1A2E, #16213E, #0F3460);
     color: #fff;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    /* Add the grid effect directly to the body */
+    position: relative;
 }
 
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1; /* Place behind other content */
+}
 /* Luminance Section */
 #luminance {
     padding: 60px 20px;
@@ -146,4 +161,32 @@ body {
     animation-play-state: paused; /* Pause on hover */
     cursor: pointer;
     background: rgba(255, 255, 255, 0.2); /* Slightly brighter on hover */
+}
+.home-button {
+    position: fixed;
+    top: 80px;
+    right: 30px;
+    padding: 8px 16px;
+    background: linear-gradient(to right, #1A1A2E, #16213E, #0F3460);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    opacity: 1; /* Start visible */
+    transform: translateY(0); /* Start in normal position */
+}
+
+.home-button.hide {
+    opacity: 0;
+    transform: translateY(-20px); /* Move up slightly while fading */
+    pointer-events: none; /* Disable clicks when hidden */
+}
+
+.home-button:hover {
+    background: linear-gradient(to right, #16213E, #0F3460, #1A1A2E);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }

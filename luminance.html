@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="luminance.css"> <!-- Link to your CSS file -->
 </head>
 <body>
+
     <marquee behavior="scroll" direction="left" scrollamount="8" class="super-marquee">
         ✨ "Dharma always prevails; walk the path of truth with courage." – Bhagavad Gita |  
         "सफलता उन्हीं को मिलती है जो खुद पर विश्वास रखते हैं!" – प्रेरणादायक विचार |  
@@ -21,7 +22,8 @@
         "सिंह वही बनता है जो अकेले भीड़ से लड़ने की ताकत रखता है!" – बॉलीवुड प्रेरणा |  
         "ನೀನು ಸೋಲನ್ನು ಒಪ್ಪಿಕೊಂಡರೆ, ಅದೇ ನಿನ್ನ ಅಂತ್ಯ. ಆದರೆ ಹೋರಾಡಿದರೆ, ನಿನ್ನ ಹೊಸ ಆರಂಭ!" – ಕನ್ನಡ ಸಿನಿಮಾ ✨  
     </marquee>
-    
+    <a href="index.html" class="home-button">Back to Home</a>
+
     
     <section id="luminance">
         <h2>Echoes of Enlightenment</h2>
@@ -105,5 +107,29 @@
     <footer class="footer bg-dark text-light text-center p-3">
         <p>&copy; 2025 Keerti Krishna Sreenivas S | All Rights Reserved</p>
     </footer>
+    <script>
+        // Scroll behavior for home button
+        let lastScrollTop = 0;
+        const homeButton = document.querySelector('.home-button');
+        
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                homeButton.classList.add('hide');
+            } else {
+                // Scrolling up
+                homeButton.classList.remove('hide');
+            }
+            
+            // Show button when at top of page
+            if (scrollTop === 0) {
+                homeButton.classList.remove('hide');
+            }
+            
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, {passive: true});
+    </script>
 </body>
 </html>
