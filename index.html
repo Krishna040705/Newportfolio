@@ -560,6 +560,7 @@ s0.parentNode.insertBefore(s1,s0);
     </div>
   </footer>
   <script>
+
     function isMobileDevice() {
       return (
         (typeof window.orientation !== "undefined") || 
@@ -568,73 +569,232 @@ s0.parentNode.insertBefore(s1,s0);
         (window.innerWidth <= 1024)
       );
     }
-
+    
     if (isMobileDevice()) {
-
+    
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
       document.body.style.margin = '0';
       document.body.style.padding = '0';
       document.body.style.height = '100vh';
       document.body.style.width = '100vw';
-
+    
       document.body.innerHTML = `
-        <div style="
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          padding: 20px;
-          background: #0f0c29;
-          color: white;
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          z-index: 9999;
-          box-sizing: border-box;
-          overflow: hidden;
-        ">
-          <div style="max-width: 100%; width: 500px; padding: 20px;">
-            <h1 style="color: #00bcd4; margin-bottom: 20px; font-size: clamp(1.5rem, 5vw, 2rem);">
-              Desktop Experience Required
-            </h1>
-            <p style="margin-bottom: 30px; font-size: clamp(1rem, 3vw, 1.2rem); line-height: 1.5;">
-              My portfolio is designed for desktop browsers to showcase the full interactive experience. 
-              Please visit on a computer or enable "Desktop Site" in your mobile browser settings.
+        <div class="mobile-blocker">
+          <div class="blocker-content">
+            <div class="animated-logo">
+              <svg viewBox="0 0 100 100" class="logo-spinner">
+                <path d="M50 10 L90 50 L50 90 L10 50 Z" class="logo-path"/>
+              </svg>
+            </div>
+            <h1 class="blocker-title">Desktop Experience Required</h1>
+            <p class="blocker-message">
+              My portfolio is designed with rich desktop interactions that mobile devices can't fully showcase.
+              <span class="highlight">For the complete experience</span>, please visit on a computer or enable "Desktop Site" mode.
             </p>
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px;">
-              <a href="https://www.linkedin.com/in/krishna040705/" style="
-                color: white;
-                text-decoration: none;
-                padding: 12px 24px;
-                background: #0077b5;
-                border-radius: 5px;
-                font-size: clamp(0.9rem, 3vw, 1rem);
-                white-space: nowrap;
-              ">
-                View LinkedIn Profile
+            <div class="blocker-buttons">
+              <a href="https://www.linkedin.com/in/krishna040705/" class="blocker-btn linkedin-btn">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
               </a>
-              <a href="https://github.com/Krishna040705" style="
-                color: white;
-                text-decoration: none;
-                padding: 12px 24px;
-                background: #333;
-                border-radius: 5px;
-                font-size: clamp(0.9rem, 3vw, 1rem);
-                white-space: nowrap;
-              ">
-                View GitHub
+              <a href="https://github.com/Krishna040705" class="blocker-btn github-btn">
+                <i class="fab fa-github"></i> GitHub
               </a>
             </div>
+            <div class="tech-stack">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">Tailwind</span>
+              <span class="tech-tag">Three.js</span>
+            </div>
           </div>
+          <div class="particles"></div>
         </div>
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+          @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+    
+          .mobile-blocker {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            z-index: 9999;
+            overflow: hidden;
+            padding: 20px;
+            box-sizing: border-box;
+          }
+    
+          .blocker-content {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            background: rgba(15, 12, 41, 0.8);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.8s ease-out;
+          }
+    
+          .animated-logo {
+            margin: 0 auto 25px;
+            width: 80px;
+            height: 80px;
+          }
+    
+          .logo-spinner {
+            width: 100%;
+            height: 100%;
+            animation: spin 8s linear infinite;
+          }
+    
+          .logo-path {
+            fill: none;
+            stroke: #00bcd4;
+            stroke-width: 3;
+            stroke-dasharray: 150;
+            stroke-dashoffset: 150;
+            animation: dash 3s ease-in-out infinite;
+          }
+    
+          .blocker-title {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00bcd4, #00ff95);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+          }
+    
+          .blocker-message {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+          }
+    
+          .highlight {
+            color: #00bcd4;
+            font-weight: 600;
+          }
+    
+          .blocker-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+          }
+    
+          .blocker-btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+          }
+    
+          .linkedin-btn {
+            background: #0077b5;
+            color: white;
+          }
+    
+          .github-btn {
+            background: #333;
+            color: white;
+          }
+    
+          .blocker-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          }
+    
+          .blocker-btn i {
+            font-size: 1.1em;
+          }
+    
+          .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+          }
+    
+          .tech-tag {
+            background: rgba(0, 188, 212, 0.2);
+            color: #00bcd4;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(0, 188, 212, 0.3);
+          }
+    
+          .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+          }
+    
+          .particles:before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='1' fill='rgba(0, 188, 212, 0.2)'/%3E%3C/svg%3E");
+            background-size: 20px 20px;
+            animation: particleMove 20s linear infinite;
+          }
+    
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+    
+          @keyframes spin {
+            100% { transform: rotate(360deg); }
+          }
+    
+          @keyframes dash {
+            0% { stroke-dashoffset: 150; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -150; }
+          }
+    
+          @keyframes particleMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(20px, 20px); }
+          }
+    
+          body {
+            touch-action: none;
+            -webkit-overflow-scrolling: none;
+            overscroll-behavior: none;
+          }
+        </style>
       `;
-
-      document.body.addEventListener('touchmove', function(e) {
+    
+      document.addEventListener('touchmove', function(e) {
         e.preventDefault();
       }, { passive: false });
     }
