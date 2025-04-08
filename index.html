@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="mobile-web-app-capable" content="no">
     <meta name="description" content="Computer Science and Engineering student with a passion for technology and innovation. Proficient in programming languages such as Python, Java, and C, I am dedicated to developing efficient and user-friendly software solutions. With a strong foundation in algorithms, data structures, and problem-solving, I am constantly exploring new technologies to enhance my skills. Explore my projects and connect with me to collaborate on exciting tech ventures and drive impactful change in the digital world.">
 <meta name="google-site-verification" content="NCg5bhFplenb2CfMSLQ0LB_jIa8VEH_g3C-KcCwwUak" />    <title>Keerti Krishna Sreenivas S</title>
     <link rel="icon" href="Logo.png" type="image/x-icon">
@@ -562,6 +564,59 @@ s0.parentNode.insertBefore(s1,s0);
       </div>
     </div>
   </footer>
-
+  <script>
+    // Strict mobile detection with multiple checks
+    function isMobileDevice() {
+      return (
+        (typeof window.orientation !== "undefined") || 
+        (navigator.userAgent.indexOf('IEMobile') !== -1) ||
+        (/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent)) ||
+        (window.innerWidth <= 800 && window.innerHeight <= 600)
+      );
+    }
+    
+    if (isMobileDevice()) {
+      document.body.innerHTML = `
+        <div style="
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          padding: 20px;
+          background: #0f0c29;
+          color: white;
+          font-family: Arial, sans-serif;
+        ">
+          <h1 style="color: #00bcd4; margin-bottom: 20px;">Desktop Experience Required</h1>
+          <p style="max-width: 500px; margin-bottom: 30px;">
+            My portfolio is designed for desktop browsers to showcase the full interactive experience. 
+            Please visit on a computer or enable "Desktop Site" in your mobile browser settings.
+          </p>
+          <div style="margin-top: 20px;">
+            <a href="https://www.linkedin.com/in/krishna040705/" style="
+              color: white;
+              text-decoration: none;
+              padding: 10px 20px;
+              background: #0077b5;
+              border-radius: 5px;
+              margin: 0 10px;
+            ">View LinkedIn Profile</a>
+            <a href="https://github.com/Krishna040705" style="
+              color: white;
+              text-decoration: none;
+              padding: 10px 20px;
+              background: #333;
+              border-radius: 5px;
+              margin: 0 10px;
+            ">View GitHub</a>
+          </div>
+        </div>
+      `;
+      document.body.style.margin = '0';
+      document.body.style.padding = '0';
+    }
+    </script>
 </body>
 </html>

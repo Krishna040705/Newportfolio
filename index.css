@@ -662,3 +662,26 @@ body {
     position: relative;
     left: 60px;
 }
+@media only screen and (max-width: 768px) {
+    body::before {
+      content: "This portfolio is optimized for desktop viewing. Please access from a computer or enable desktop mode.";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #0f0c29;
+      color: white;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    
+    body > *:not(::before) {
+      display: none !important;
+    }
+  }
