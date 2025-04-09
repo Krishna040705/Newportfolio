@@ -6,127 +6,205 @@
     <title>Contact Me - Keerti Krishna</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-     
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand glow-on-hover" href="#">
-                <img src="Logo.png" alt="Logo" width="40" class="brand-logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">
-                            <span class="nav-icon"><i class="fas fa-home"></i></span>
-                            <span class="nav-text">Home</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">
-                            <span class="nav-icon"><i class="fas fa-code"></i></span>
-                            <span class="nav-text">Projects</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="About.html">
-                            <span class="nav-icon"><i class="fas fa-user"></i></span>
-                            <span class="nav-text">About</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="certificates.html">
-                            <span class="nav-icon"><i class="fas fa-certificate"></i></span>
-                            <span class="nav-text">Certificates</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Keerti Krishna Sreenivas S - Resume.pdf" target="_blank">
-                            <span class="nav-icon"><i class="fas fa-file-alt"></i></span>
-                            <span class="nav-text">Resume</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html" >
-                            <span class="nav-icon"><i class="fas fa-envelope"></i></span>
-                            <span class="nav-text">Contact</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="drawing.html">
-                            <span class="nav-icon"><i class="fas fa-pencil-alt"></i></span>
-                            <span class="nav-text">My Hobby</span>
-                        </a>
-                    </li>
-    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="nav-icon"><i class="fas fa-external-link-alt"></i></span>
-                            <span class="nav-text">Profiles</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="dropdown-item profile-link" href="https://leetcode.com/u/KeertiKrishnaSreenivasS/" target="_blank">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" width="20" height="20" class="me-2">
-                                    <span>LeetCode</span>
-                                    <i class="fas fa-arrow-up-right-from-square link-icon"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item profile-link" href="https://www.codechef.com/users/klu_2300031039" target="_blank">
-                                    <img src="https://cdn.codechef.com/sites/all/themes/abessive/cc-logo.svg" alt="CodeChef" width="20" height="20" class="me-2">
-                                    <span>CodeChef</span>
-                                    <i class="fas fa-arrow-up-right-from-square link-icon"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item profile-link" href="https://www.geeksforgeeks.org/user/keertikrishnd5a4/" target="_blank">
-                                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210915115837/gfg3-300x300.png" alt="GeeksforGeeks" width="20" height="20" class="me-2">
-                                    <span>GeeksforGeeks</span>
-                                    <i class="fas fa-arrow-up-right-from-square link-icon"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand glow-on-hover" href="#">
+            <img src="Logo.png" alt="Logo" width="40" class="brand-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span class="nav-text">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">
+                        <span class="nav-icon"><i class="fas fa-code"></i></span>
+                        <span class="nav-text">Projects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span class="nav-text">About</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="certificates.html">
+                        <span class="nav-icon"><i class="fas fa-certificate"></i></span>
+                        <span class="nav-text">Certificates</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Keerti Krishna Sreenivas S - Resume.pdf" target="_blank">
+                        <span class="nav-icon"><i class="fas fa-file-alt"></i></span>
+                        <span class="nav-text">Resume</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="contact.html">
+                        <span class="nav-icon"><i class="fas fa-envelope"></i></span>
+                        <span class="nav-text">Contact</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="drawing.html">
+                        <span class="nav-icon"><i class="fas fa-pencil-alt"></i></span>
+                        <span class="nav-text">My Hobby</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="nav-icon"><i class="fas fa-external-link-alt"></i></span>
+                        <span class="nav-text">Profiles</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item profile-link" href="https://leetcode.com/u/KeertiKrishnaSreenivasS/" target="_blank">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" width="20" height="20" class="me-2">
+                                <span>LeetCode</span>
+                                <i class="fas fa-arrow-up-right-from-square link-icon"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item profile-link" href="https://www.codechef.com/users/klu_2300031039" target="_blank">
+                                <img src="https://cdn.codechef.com/sites/all/themes/abessive/cc-logo.svg" alt="CodeChef" width="20" height="20" class="me-2">
+                                <span>CodeChef</span>
+                                <i class="fas fa-arrow-up-right-from-square link-icon"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item profile-link" href="https://www.geeksforgeeks.org/user/keertikrishnd5a4/" target="_blank">
+                                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210915115837/gfg3-300x300.png" alt="GeeksforGeeks" width="20" height="20" class="me-2">
+                                <span>GeeksforGeeks</span>
+                                <i class="fas fa-arrow-up-right-from-square link-icon"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </nav>
-    
+    </div>
+</nav>
 
 <div id="push">
     <section class="container my-5">
-        <h2 class="text-center mb-4">📞 Contact Me</h2>
+        <h2 class="text-center mb-4 glitch" data-text="📞 Contact Me">📞 Contact Me</h2>
 
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="contact-box p-4 shadow-lg">
-                    <h4>Email</h4>
-                    <p><a href="mailto:2300031039@kluniversity.in" >2300031039@kluniversity.in</a></p>
-     <p><a href="mailto:keertikrishnasreenivas@gmail.com" >keertikrishnasreenivas@gmail.com</a></p>
+            <!-- Live Connection Widget -->
+            <div class="col-md-4 mb-4">
+                <div class="connection-widget p-4 shadow-lg">
+                    <h4 class="text-center mb-3"><i class="fas fa-plug me-2"></i>Live Connection</h4>
 
+                    <div class="connection-status mb-3">
+                        <div class="status-indicator">
+                            <span class="pulse-dot"></span>
+                            <span class="status-text">Currently Available</span>
+                        </div>
+                        <div class="response-time mt-2">
+                            <i class="fas fa-stopwatch me-2"></i>
+                            <span>Avg. response time: <strong>2 hours</strong></span>
+                        </div>
+                    </div>
 
-                    <h4>Phone</h4>
-                    <p><a href="tel:+916363193384" >+91 63631 93384</a></p>
+                    <div class="visitor-stats mb-3">
+                        <h5><i class="fas fa-users me-2"></i>Visitor Stats</h5>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-value" id="today-visitors">24</div>
+                                <div class="stat-label">Today</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" id="week-visitors">189</div>
+                                <div class="stat-label">This Week</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" id="total-visitors">1.2K</div>
+                                <div class="stat-label">Total</div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <h4>Address</h4>
-                    <p> KR Puram, Bengaluru, Karnataka, 560036</p>
+                    <div class="availability-chart">
+                        <h5><i class="fas fa-chart-line me-2"></i>Best Time to Reach</h5>
+                        <canvas id="availabilityChart" height="150"></canvas>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <!-- Contact Information -->
+            <div class="col-md-4 mb-4">
+                <div class="contact-box p-4 shadow-lg">
+                    <h4 class="text-center mb-3"><i class="fas fa-envelope me-2"></i>Email</h4>
+                    <div class="contact-method">
+                        <a href="mailto:2300031039@kluniversity.in" class="contact-link">
+                            <i class="fas fa-university me-2"></i>
+                            <span>2300031039@kluniversity.in</span>
+                        </a>
+                    </div>
+                    <div class="contact-method mt-3">
+                        <a href="mailto:keertikrishnasreenivas@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope me-2"></i>
+                            <span>keertikrishnasreenivas@gmail.com</span>
+                        </a>
+                    </div>
+
+                    <h4 class="text-center mt-4 mb-3"><i class="fas fa-phone me-2"></i>Phone</h4>
+                    <div class="contact-method">
+                        <a href="tel:+916363193384" class="contact-link">
+                            <i class="fas fa-mobile-alt me-2"></i>
+                            <span>+91 63631 93384</span>
+                        </a>
+                    </div>
+
+                    <h4 class="text-center mt-4 mb-3"><i class="fas fa-map-marker-alt me-2"></i>Address</h4>
+                    <div class="contact-method">
+                        <i class="fas fa-home me-2"></i>
+                        <span>KR Puram, Bengaluru, Karnataka, 560036</span>
+                    </div>
+                </div>
+            </div>
+
+<!-- Contact Form -->
+<div class="col-md-4 mb-4">
+    <div class="contact-form-box p-4 shadow-lg">
+        <h4 class="text-center mb-3"><i class="fas fa-paper-plane me-2"></i>Quick Message</h4>
+        <form action="https://formspree.io/f/xaneaeql" method="POST">
+            <div class="mb-3">
+                <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="mb-3">
+                <textarea class="form-control" name="message" rows="3" placeholder="Your Message" required></textarea>
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-send">
+                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+        <div class="row mt-4">
+            <div class="col-12">
                 <div class="map-box shadow-lg">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59122.03275840843!2d77.72548249999998!3d13.0053236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae11abc8ffe3e7:0xd8368746c98e53bf!2sKrishnarajapuram,%20Bengaluru,%20Karnataka!5e1!3m2!1sen!2sin!4v1742624398157!5m2!1sen!2sin" 
-                        width="100%" height="330" style="border:0;" allowfullscreen="" loading="lazy">
+                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
                     </iframe>
                 </div>
             </div>
@@ -134,7 +212,336 @@
     </section>
 </div>
 
+<script>
 
+    const ctx = document.getElementById('availabilityChart').getContext('2d');
+    const availabilityChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+                label: 'Response Rate (%)',
+                data: [85, 78, 92, 88, 80, 65, 70],
+                backgroundColor: 'rgba(0, 188, 212, 0.7)',
+                borderColor: 'rgba(0, 188, 212, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        color: '#fff'
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#fff'
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    enabled: true
+                }
+            }
+        }
+    });
+
+    function updateVisitorCounts() {
+
+        const todayEl = document.getElementById('today-visitors');
+        let todayCount = parseInt(todayEl.textContent);
+        todayCount += Math.floor(Math.random() * 3);
+        todayEl.textContent = todayCount;
+
+        const weekEl = document.getElementById('week-visitors');
+        let weekCount = parseInt(weekEl.textContent);
+        weekCount += Math.floor(Math.random() * 5);
+        weekEl.textContent = weekCount;
+
+        const totalEl = document.getElementById('total-visitors');
+        let totalCount = parseFloat(totalEl.textContent.replace('K', '')) * 1000;
+        totalCount += Math.floor(Math.random() * 10);
+        totalEl.textContent = (totalCount / 1000).toFixed(1) + 'K';
+
+        availabilityChart.data.datasets[0].data = availabilityChart.data.datasets[0].data.map(
+            value => Math.min(100, value + (Math.random() * 10 - 3))
+        availabilityChart.update();
+
+        setTimeout(updateVisitorCounts, 5000);
+    }
+
+    setTimeout(updateVisitorCounts, 2000);
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+
+            submitBtn.innerHTML = '<i class="fas fa-check me-2"></i>Message Sent!';
+
+            setTimeout(() => {
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+
+                alert('Thank you for your message! I will get back to you soon.');
+            }, 2000);
+        }, 1500);
+    });
+</script>
+
+<style>
+
+    .connection-widget, .contact-box, .contact-form-box {
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+    }
+
+    .connection-widget:hover, .contact-box:hover, .contact-form-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 188, 212, 0.3);
+    }
+
+    .connection-status {
+        background: rgba(0, 188, 212, 0.1);
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .status-indicator {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .pulse-dot {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background-color: #00bcd4;
+        border-radius: 50%;
+        margin-right: 10px;
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.3); opacity: 0.7; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    .status-text {
+        font-weight: 600;
+        color: #00bcd4;
+    }
+
+    .response-time {
+        font-size: 0.9rem;
+        color: #aaa;
+    }
+
+    .visitor-stats {
+        margin-bottom: 20px;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .stat-item {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #00bcd4;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+        color: #aaa;
+    }
+
+    .contact-method {
+        display: flex;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 8px;
+        transition: background 0.3s ease;
+    }
+
+    .contact-method:hover {
+        background: rgba(0, 188, 212, 0.1);
+    }
+
+    .contact-link {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .contact-link:hover {
+        color: #00bcd4;
+    }
+
+    .form-control {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+    }
+
+    .form-control:focus {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: #00bcd4;
+        color: #fff;
+        box-shadow: 0 0 0 0.25rem rgba(0, 188, 212, 0.25);
+    }
+
+    .btn-send {
+        background: linear-gradient(45deg, #00bcd4, #008ba3);
+        border: none;
+        font-weight: 600;
+    }
+
+    .btn-send:hover {
+        background: linear-gradient(45deg, #008ba3, #00bcd4);
+    }
+
+    .map-box {
+        border-radius: 15px;
+        overflow: hidden;
+        margin-top: 20px;
+    }
+    /* Beautiful Popup Notification */
+.form-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #00bcd4, #008ba3);
+    color: white;
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transform: translateX(150%);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    max-width: 350px;
+}
+
+.form-popup.show {
+    transform: translateX(0);
+}
+
+.form-popup i {
+    font-size: 24px;
+    color: white;
+}
+
+.form-popup-content {
+    flex: 1;
+}
+
+.form-popup h4 {
+    margin: 0 0 5px 0;
+    font-weight: 600;
+}
+
+.form-popup p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+.form-popup-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.form-popup-close:hover {
+    opacity: 1;
+}
+</style>
+
+<script>
+    document.querySelector("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = {
+    name: e.target.name.value,
+    email: e.target.email.value,
+    message: e.target.message.value,
+  };
+
+  try {
+    const response = await fetch("https://formspree.io/f/xaneaeql", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      alert("Message sent!");
+      e.target.reset(); 
+    } else {
+      throw new Error("Failed to send");
+    }
+  } catch (error) {
+    alert("Error: " + error.message);
+  }
+});
+
+
+    </script>
+    <div class="form-popup" id="formPopup">
+    <i class="fas fa-check-circle"></i>
+    <div class="form-popup-content">
+        <h4>Message Sent!</h4>
+        <p>Thank you for contacting me. I'll get back to you soon.</p>
+    </div>
+    <button class="form-popup-close" onclick="hidePopup()">
+        <i class="fas fa-times"></i>
+    </button>
+</div>
 </body>
 </html>
-
