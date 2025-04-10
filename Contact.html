@@ -261,27 +261,24 @@
     });
 
     function updateVisitorCounts() {
-    // Get current time and calculate progress through current 2-hour block
+
     const now = new Date();
     const minutes = now.getMinutes() + (now.getHours() % 2) * 60;
-    const progress = minutes / 120; // 0-1 progress through current 2-hour period
-    
-    // Smoothly animate the numbers
+    const progress = minutes / 120; 
+
     animateValue('today-visitors', 1 + progress * 0.3, 1);
     animateValue('week-visitors', 3 + progress * 0.7, 1);
     animateValue('total-visitors', 5 + progress * 0.2, 2, true);
-    
-    // Update chart data smoothly
+
     updateChartData(progress);
-    
-    // Update every second for smooth animation
+
     setTimeout(updateVisitorCounts, 1000);
 }
 
 function animateValue(id, baseIncrement, fluctuation, isTotal = false) {
     const element = document.getElementById(id);
     let currentValue;
-    
+
     if (isTotal) {
         currentValue = parseFloat(element.textContent.replace('K', '')) * 1000;
         const newValue = currentValue + (baseIncrement + Math.random() * fluctuation) / 3600;
@@ -295,21 +292,20 @@ function animateValue(id, baseIncrement, fluctuation, isTotal = false) {
 
 function updateChartData(progress) {
     if (!availabilityChart) return;
-    
+
     const dataset = availabilityChart.data.datasets[0];
     const newData = dataset.data.map(value => {
         const change = (Math.random() * 0.2 - 0.1) + (progress * 0.05);
         return Math.min(100, Math.max(80, value + change));
     });
-    
+
     dataset.data = newData;
-    
+
     if (new Date().getSeconds() % 30 === 0) {
         availabilityChart.update();
     }
 }
 
-// Start the counter
 updateVisitorCounts();
 
     setTimeout(updateVisitorCounts, 2000);
@@ -471,7 +467,7 @@ updateVisitorCounts();
         overflow: hidden;
         margin-top: 20px;
     }
-    /* Beautiful Popup Notification */
+
 .form-popup {
     position: fixed;
     top: 20px;
@@ -558,7 +554,6 @@ updateVisitorCounts();
     alert("Error: " + error.message);
   }
 });
-
 
     </script>
     <div class="form-popup" id="formPopup">
