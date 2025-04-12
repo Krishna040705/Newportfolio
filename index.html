@@ -146,47 +146,46 @@ s0.parentNode.insertBefore(s1,s0);
 <style>
   .version-banner {
     position: fixed;
-    top: 80px; /* Lowered from 15vh for more consistent positioning */
-    right: 80px; /* Brought in from the edge */
+    top: 80px; 
+    right: 80px; 
     z-index: 1020;
     background: linear-gradient(135deg, rgba(26,26,46,0.8), rgba(22,33,62,0.8));
     backdrop-filter: blur(5px);
-    padding: 4px 12px; /* Smaller padding */
-    border-radius: 8px; /* Slightly smaller radius */
+    padding: 4px 12px; 
+    border-radius: 8px; 
     border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 0 12px rgba(0,188,212,0.3); /* Smaller shadow */
+    box-shadow: 0 0 12px rgba(0,188,212,0.3); 
     opacity: 0;
     transform: translateY(-10px);
     transition: all 0.5s ease-out;
-    font-size: 0.75rem; /* Smaller text */
+    font-size: 0.75rem; 
     margin-top: 5px;
   }
-  
+
   .version-text {
-    font-size: 0.75rem; /* Matching smaller text */
+    font-size: 0.75rem; 
     color: rgba(255,255,255,0.9);
     font-family: 'Poppins', sans-serif;
-    letter-spacing: 0.3px; /* Tighter letter spacing */
-    text-shadow: 0 0 3px rgba(0,188,212,0.5); /* Smaller glow */
+    letter-spacing: 0.3px; 
+    text-shadow: 0 0 3px rgba(0,188,212,0.5); 
   }
-  
-  /* Responsive adjustments */
-  @media (max-width: 1440px) { /* For 14" laptops */
+
+  @media (max-width: 1440px) { 
     .version-banner {
       top: 70px;
       right: 25px;
     }
   }
-  
-  @media (max-width: 1366px) { /* Common 14" resolution */
+
+  @media (max-width: 1366px) { 
     .version-banner {
       top: 65px;
       right: 20px;
       padding: 3px 10px;
     }
   }
-  
-  @media (max-width: 768px) { /* Mobile */
+
+  @media (max-width: 768px) { 
     .version-banner {
       top: auto;
       bottom: 15px;
@@ -195,33 +194,29 @@ s0.parentNode.insertBefore(s1,s0);
     }
   }
 </style>
-  
+
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     const versionBanner = document.querySelector('.version-banner');
     const navbar = document.querySelector('.navbar');
-    
-    // Dynamic positioning based on navbar height
+
     function positionBanner() {
       const navbarHeight = navbar.offsetHeight;
       versionBanner.style.top = `${navbarHeight + 20}px`;
     }
-    
-    // Initial positioning
+
     positionBanner();
-    
-    // Recalculate on resize
+
     window.addEventListener('resize', positionBanner);
-    
-    // Rest of your existing animation code...
+
     setTimeout(() => {
       versionBanner.classList.add('animate-banner');
     }, 800);
-  
+
     window.addEventListener('scroll', function() {
       const projectsSection = document.getElementById('projects');
       if (!projectsSection) return;
-      
+
       const projectsPosition = projectsSection.getBoundingClientRect().top;
       if (projectsPosition < window.innerHeight * 0.5) {
         versionBanner.style.opacity = '0';
@@ -581,16 +576,16 @@ s0.parentNode.insertBefore(s1,s0);
         (window.innerWidth <= 1024)
       );
     }
-    
+
     if (isMobileDevice()) {
-    
+
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
       document.body.style.margin = '0';
       document.body.style.padding = '0';
       document.body.style.height = '100vh';
       document.body.style.width = '100vw';
-    
+
       document.body.innerHTML = `
         <div class="mobile-blocker">
           <div class="blocker-content">
@@ -611,13 +606,13 @@ s0.parentNode.insertBefore(s1,s0);
               <a href="https://github.com/Krishna040705" class="blocker-btn github-btn">
                 <i class="fab fa-github"></i> GitHub
               </a>
-           
+
           <div class="particles"></div>
         </div>
         <style>
           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
           @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-    
+
           .mobile-blocker {
             position: fixed;
             top: 0;
@@ -634,7 +629,7 @@ s0.parentNode.insertBefore(s1,s0);
             padding: 20px;
             box-sizing: border-box;
           }
-    
+
           .blocker-content {
             max-width: 600px;
             width: 100%;
@@ -649,19 +644,19 @@ s0.parentNode.insertBefore(s1,s0);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             animation: fadeIn 0.8s ease-out;
           }
-    
+
           .animated-logo {
             margin: 0 auto 25px;
             width: 80px;
             height: 80px;
           }
-    
+
           .logo-spinner {
             width: 100%;
             height: 100%;
             animation: spin 8s linear infinite;
           }
-    
+
           .logo-path {
             fill: none;
             stroke: #00bcd4;
@@ -670,7 +665,7 @@ s0.parentNode.insertBefore(s1,s0);
             stroke-dashoffset: 150;
             animation: dash 3s ease-in-out infinite;
           }
-    
+
           .blocker-title {
             font-size: clamp(1.8rem, 5vw, 2.5rem);
             margin-bottom: 20px;
@@ -680,19 +675,19 @@ s0.parentNode.insertBefore(s1,s0);
             color: transparent;
             font-weight: 700;
           }
-    
+
           .blocker-message {
             font-size: clamp(1rem, 3vw, 1.1rem);
             line-height: 1.6;
             margin-bottom: 30px;
             color: rgba(255, 255, 255, 0.9);
           }
-    
+
           .highlight {
             color: #00bcd4;
             font-weight: 600;
           }
-    
+
           .blocker-buttons {
             display: flex;
             justify-content: center;
@@ -700,7 +695,7 @@ s0.parentNode.insertBefore(s1,s0);
             flex-wrap: wrap;
             margin-bottom: 30px;
           }
-    
+
           .blocker-btn {
             padding: 12px 25px;
             border-radius: 50px;
@@ -712,33 +707,33 @@ s0.parentNode.insertBefore(s1,s0);
             transition: all 0.3s ease;
             font-weight: 600;
           }
-    
+
           .linkedin-btn {
             background: #0077b5;
             color: white;
           }
-    
+
           .github-btn {
             background: #333;
             color: white;
           }
-    
+
           .blocker-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
           }
-    
+
           .blocker-btn i {
             font-size: 1.1em;
           }
-    
+
           .tech-stack {
             display: flex;
             justify-content: center;
             gap: 10px;
             flex-wrap: wrap;
           }
-    
+
           .tech-tag {
             background: rgba(0, 188, 212, 0.2);
             color: #00bcd4;
@@ -747,7 +742,7 @@ s0.parentNode.insertBefore(s1,s0);
             font-size: 0.8rem;
             border: 1px solid rgba(0, 188, 212, 0.3);
           }
-    
+
           .particles {
             position: absolute;
             top: 0;
@@ -757,7 +752,7 @@ s0.parentNode.insertBefore(s1,s0);
             z-index: 1;
             overflow: hidden;
           }
-    
+
           .particles:before {
             content: "";
             position: absolute;
@@ -769,27 +764,27 @@ s0.parentNode.insertBefore(s1,s0);
             background-size: 20px 20px;
             animation: particleMove 20s linear infinite;
           }
-    
+
           @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
           }
-    
+
           @keyframes spin {
             100% { transform: rotate(360deg); }
           }
-    
+
           @keyframes dash {
             0% { stroke-dashoffset: 150; }
             50% { stroke-dashoffset: 0; }
             100% { stroke-dashoffset: -150; }
           }
-    
+
           @keyframes particleMove {
             0% { transform: translate(0, 0); }
             100% { transform: translate(20px, 20px); }
           }
-    
+
           body {
             touch-action: none;
             -webkit-overflow-scrolling: none;
@@ -797,19 +792,18 @@ s0.parentNode.insertBefore(s1,s0);
           }
         </style>
       `;
-    
+
       document.addEventListener('touchmove', function(e) {
         e.preventDefault();
       }, { passive: false });
     }
     </script>
      <script>
-      // Additional JS for responsive behavior
+
       function adjustLayout() {
           const screenWidth = window.innerWidth;
           const html = document.documentElement;
-          
-          // Adjust base font size based on screen width
+
           if (screenWidth >= 1600) {
               html.style.fontSize = '18px';
           } else if (screenWidth >= 1440) {
@@ -819,8 +813,7 @@ s0.parentNode.insertBefore(s1,s0);
           } else {
               html.style.fontSize = '15px';
           }
-          
-          // Adjust project card layout
+
           const projectCards = document.querySelectorAll('.project-card');
           projectCards.forEach(card => {
               if (screenWidth < 992) {
@@ -830,8 +823,7 @@ s0.parentNode.insertBefore(s1,s0);
               }
           });
       }
-      
-      // Run on load and resize
+
       window.addEventListener('load', adjustLayout);
       window.addEventListener('resize', adjustLayout);
   </script>
