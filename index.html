@@ -143,78 +143,90 @@ s0.parentNode.insertBefore(s1,s0);
 <div class="version-banner animate__animated animate__fadeIn animate__delay-1s">
     <span class="version-text">Keerti Krishna Sreenivas S | v2.0</span>
   </div>
-
-  <style>
+<style>
   .version-banner {
     position: fixed;
-    top: 100px;
-    right: 85px;
+    top: 80px; /* Lowered from 15vh for more consistent positioning */
+    right: 80px; /* Brought in from the edge */
     z-index: 1020;
     background: linear-gradient(135deg, rgba(26,26,46,0.8), rgba(22,33,62,0.8));
     backdrop-filter: blur(5px);
-    padding: 6px 15px;
-    border-radius: 15px;
+    padding: 4px 12px; /* Smaller padding */
+    border-radius: 8px; /* Slightly smaller radius */
     border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 0 15px rgba(0,188,212,0.3);
+    box-shadow: 0 0 12px rgba(0,188,212,0.3); /* Smaller shadow */
     opacity: 0;
     transform: translateY(-10px);
     transition: all 0.5s ease-out;
+    font-size: 0.75rem; /* Smaller text */
+    margin-top: 5px;
   }
-
+  
   .version-text {
-    font-size: 0.8rem;
+    font-size: 0.75rem; /* Matching smaller text */
     color: rgba(255,255,255,0.9);
     font-family: 'Poppins', sans-serif;
-    letter-spacing: 0.5px;
-    text-shadow: 0 0 5px rgba(0,188,212,0.5);
+    letter-spacing: 0.3px; /* Tighter letter spacing */
+    text-shadow: 0 0 3px rgba(0,188,212,0.5); /* Smaller glow */
   }
-
-  .animate-banner {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @keyframes lightPulse {
-    0% { box-shadow: 0 0 10px rgba(0,188,212,0.3); }
-    50% { box-shadow: 0 0 20px rgba(0,188,212,0.6); }
-    100% { box-shadow: 0 0 10px rgba(0,188,212,0.3); }
-  }
-
-  .version-banner:hover {
-    animation: lightPulse 2s infinite;
-  }
-
-  @media (max-width: 768px) {
+  
+  /* Responsive adjustments */
+  @media (max-width: 1440px) { /* For 14" laptops */
     .version-banner {
-      top: auto;
-      bottom: 20px;
-      right: 20px;
-      left: auto;
-      padding: 5px 12px;
+      top: 70px;
+      right: 25px;
     }
   }
-  </style>
-
+  
+  @media (max-width: 1366px) { /* Common 14" resolution */
+    .version-banner {
+      top: 65px;
+      right: 20px;
+      padding: 3px 10px;
+    }
+  }
+  
+  @media (max-width: 768px) { /* Mobile */
+    .version-banner {
+      top: auto;
+      bottom: 15px;
+      right: 15px;
+      padding: 3px 10px;
+    }
+  }
+</style>
+  
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     const versionBanner = document.querySelector('.version-banner');
-    const projectsSection = document.getElementById('projects');
-
+    const navbar = document.querySelector('.navbar');
+    
+    // Dynamic positioning based on navbar height
+    function positionBanner() {
+      const navbarHeight = navbar.offsetHeight;
+      versionBanner.style.top = `${navbarHeight + 20}px`;
+    }
+    
+    // Initial positioning
+    positionBanner();
+    
+    // Recalculate on resize
+    window.addEventListener('resize', positionBanner);
+    
+    // Rest of your existing animation code...
     setTimeout(() => {
       versionBanner.classList.add('animate-banner');
     }, 800);
-
+  
     window.addEventListener('scroll', function() {
+      const projectsSection = document.getElementById('projects');
+      if (!projectsSection) return;
+      
       const projectsPosition = projectsSection.getBoundingClientRect().top;
       if (projectsPosition < window.innerHeight * 0.5) {
         versionBanner.style.opacity = '0';
         versionBanner.style.transform = 'translateY(-20px)';
-      }
-    });
-
-    window.addEventListener('scroll', function() {
-      const projectsPosition = projectsSection.getBoundingClientRect().top;
-      if (projectsPosition > window.innerHeight * 0.7) {
+      } else if (projectsPosition > window.innerHeight * 0.7) {
         versionBanner.style.opacity = '1';
         versionBanner.style.transform = 'translateY(0)';
       }
@@ -791,5 +803,37 @@ s0.parentNode.insertBefore(s1,s0);
       }, { passive: false });
     }
     </script>
+     <script>
+      // Additional JS for responsive behavior
+      function adjustLayout() {
+          const screenWidth = window.innerWidth;
+          const html = document.documentElement;
+          
+          // Adjust base font size based on screen width
+          if (screenWidth >= 1600) {
+              html.style.fontSize = '18px';
+          } else if (screenWidth >= 1440) {
+              html.style.fontSize = '17px';
+          } else if (screenWidth >= 1366) {
+              html.style.fontSize = '16px';
+          } else {
+              html.style.fontSize = '15px';
+          }
+          
+          // Adjust project card layout
+          const projectCards = document.querySelectorAll('.project-card');
+          projectCards.forEach(card => {
+              if (screenWidth < 992) {
+                  card.style.marginBottom = '20px';
+              } else {
+                  card.style.marginBottom = '30px';
+              }
+          });
+      }
+      
+      // Run on load and resize
+      window.addEventListener('load', adjustLayout);
+      window.addEventListener('resize', adjustLayout);
+  </script>
 </body>
 </html>
