@@ -685,3 +685,83 @@ body {
       display: none !important;
     }
   }
+
+
+  /* Badges Marquee Styles */
+#badges {
+    padding: 60px 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    margin: 40px auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+#badges h2 {
+    color: #fff;
+    font-size: 2.2rem;
+    text-shadow: 0 0 10px rgba(0, 188, 212, 0.7);
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+#badges h2::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    bottom: -10px;
+    left: 25%;
+    background: linear-gradient(90deg, transparent, #00bcd4, transparent);
+}
+
+.badges-marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+}
+
+.badges-track {
+    display: flex;
+    align-items: center;
+    animation: scroll 25s linear infinite;
+    will-change: transform;
+}
+
+.badge-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 0 30px;
+    filter: drop-shadow(0 0 5px rgba(0, 188, 212, 0.5));
+    transition: all 0.4s ease;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+}
+
+.badge-img:hover {
+    transform: scale(1.15) rotate(5deg);
+    filter: drop-shadow(0 0 15px rgba(0, 188, 212, 0.8));
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .badge-img {
+        width: 80px;
+        height: 80px;
+        margin: 0 15px;
+        padding: 10px;
+    }
+    
+    #badges h2 {
+        font-size: 1.8rem;
+    }
+}
