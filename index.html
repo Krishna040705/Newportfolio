@@ -359,8 +359,6 @@ s0.parentNode.insertBefore(s1,s0);
     </div>
 </section>
 
-
-
 <style>
     .project-card {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -828,6 +826,18 @@ s0.parentNode.insertBefore(s1,s0);
 
       window.addEventListener('load', adjustLayout);
       window.addEventListener('resize', adjustLayout);
+  </script>
+  <script>  
+
+window.addEventListener('scroll', () => {
+    const scrollProgress = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    document.querySelector('.scroll-progress').style.width = `${scrollProgress}%`;
+});
+
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    navbar.style.background = window.scrollY > 50 ? 'rgba(15, 20, 40, 0.95)' : 'rgba(255, 255, 255, 0.1)';
+});
   </script>
 </body>
 </html>
