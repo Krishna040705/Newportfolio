@@ -289,7 +289,7 @@ body {
 
 .nav-link:hover .nav-icon {
     transform: rotate(15deg) scale(1.2);
-    color: #00f2fe;
+    color: white;
 }
 
 .nav-text {
