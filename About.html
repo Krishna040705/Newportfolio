@@ -199,72 +199,116 @@
             line-height: 0;
         }
 
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
+.timeline-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+    position: relative;
+}
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            width: 3px;
-            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1.5px;
-            border-radius: 3px;
-        }
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--primary-color);
+    transform: translateX(-50%);
+}
 
-        .timeline-item {
-            padding: 15px 30px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-        }
+.timeline-item {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s ease;
+}
 
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            padding-right: 50px;
-            text-align: right;
-        }
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: auto;
+    margin-right: 50%;
+    padding-left: 30px;
+}
 
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            padding-left: 50px;
-            text-align: left;
-        }
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: 50%;
+    padding-right: 30px;
+}
 
-        .timeline-content {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(5px);
-            border-radius: 12px;
-            padding: 20px;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+.timeline-content {
+    width: 46%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
 
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid var(--dark-bg);
+    top: 25px;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -7.5px;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -7.5px;
+}
+
+.timeline-date {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 10px rgba(0, 188, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .timeline-container::before {
+        left: 30px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        width: auto;
+        margin-left: 60px;
+        margin-right: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .timeline-content::before {
+        left: -7.5px;
+        right: auto;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::before,
+    .timeline-item:nth-child(even) .timeline-content::before {
+        left: -7.5px;
+        right: auto;
+    }
+}
         .timeline-content:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 188, 212, 0.3);
             background: rgba(255, 255, 255, 0.08);
-        }
-
-        .timeline-date {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            box-shadow: 0 3px 10px rgba(0, 188, 212, 0.3);
         }
 
         .timeline-title {
@@ -285,26 +329,6 @@
             font-size: 0.85rem;
             line-height: 1.5;
             color: var(--text-lighter);
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            background: var(--primary-color);
-            border: 3px solid var(--dark-bg);
-            border-radius: 50%;
-            top: 25px;
-            z-index: 1;
-        }
-
-        .timeline-item:nth-child(odd)::after {
-            right: -8px;
-        }
-
-        .timeline-item:nth-child(even)::after {
-            left: -8px;
         }
 
         .tech-grid {
@@ -456,29 +480,21 @@
                 font-size: 1.8rem;
             }
 
-            .timeline::before {
-                left: 30px;
+            .timeline-item::before {
+                left: 15px;
             }
 
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-                text-align: left !important;
+            .timeline-content {
+                margin-left: 40px;
             }
 
-            .timeline-item:nth-child(even) {
-                left: 0;
+            .timeline-date {
+                left: 15px;
+                transform: translateX(0);
             }
 
-            .timeline-item::after {
-                left: 22px !important;
-            }
-
-            .timeline-item:nth-child(odd) .timeline-content::before,
-            .timeline-item:nth-child(even) .timeline-content::before {
-                left: 30px;
-                right: auto;
+            .timeline-icon {
+                left: 5px;
             }
 
             .tech-grid {
@@ -508,6 +524,7 @@
 
             .timeline-content {
                 padding: 15px;
+                margin-left: 30px;
             }
 
             .timeline-title {
@@ -595,26 +612,26 @@
     <section id="education" class="about-section">
         <h2 class="section-title">Education</h2>
 
-        <div class="timeline">
+        <div class="timeline-container">
             <div class="timeline-item">
+                <div class="timeline-icon"></div>
                 <div class="timeline-content">
-                    <span class="timeline-date">2023 - Present</span>
                     <h3 class="timeline-title">Bachelor of Technology</h3>
                     <h4 class="timeline-subtitle">KL University</h4>
                 </div>
             </div>
 
             <div class="timeline-item">
+                <div class="timeline-icon"></div>
                 <div class="timeline-content">
-                    <span class="timeline-date">2020 - 2022</span>
                     <h3 class="timeline-title">Intermediate Education</h3>
                     <h4 class="timeline-subtitle">Sri Chaitanya PU/CBSE College, Bengaluru</h4>
                 </div>
             </div>
 
             <div class="timeline-item">
+                <div class="timeline-icon"></div>
                 <div class="timeline-content">
-                    <span class="timeline-date">2020</span>
                     <h3 class="timeline-title">School Education</h3>
                     <h4 class="timeline-subtitle">Sri Chaitanya Techno School, Bengaluru</h4>
                 </div>
@@ -625,11 +642,13 @@
     <!-- Experience Section -->
     <section id="experience" class="about-section">
         <h2 class="section-title">Professional Journey</h2>
-        <div class="timeline">
+        <div class="timeline-container">
+            <
+
             <!-- Current Roles -->
             <div class="timeline-item">
+                <div class="timeline-icon"></div>
                 <div class="timeline-content">
-                    <span class="timeline-date">Dec 2024 - Present</span>
                     <h3 class="timeline-title">GDG Member</h3>
                     <h4 class="timeline-subtitle">GDG Bangalore</h4>
                     <p class="timeline-description">
@@ -639,8 +658,8 @@
             </div>
 
             <div class="timeline-item">
+                <div class="timeline-icon"></div>
                 <div class="timeline-content">
-                    <span class="timeline-date">Jan 2024 - Present</span>
                     <h3 class="timeline-title">Hack Club Member</h3>
                     <h4 class="timeline-subtitle">Hack Club</h4>
                     <p class="timeline-description">
@@ -651,8 +670,8 @@
 
             <!-- Internship -->
             <div class="timeline-item">
+                <div class="timeline-icon"></div>
                 <div class="timeline-content">
-                    <span class="timeline-date">May 2024 - Jul 2024</span>
                     <h3 class="timeline-title">Networking Intern</h3>
                     <h4 class="timeline-subtitle">Cisco Networking Academy</h4>
                     <p class="timeline-description">
@@ -663,8 +682,8 @@
 
             <!-- Researcher Club -->
             <div class="timeline-item">
+                <div class="timeline-icon"></div>
                 <div class="timeline-content">
-                    <span class="timeline-date">2024</span>
                     <h3 class="timeline-title">Drafting Manager</h3>
                     <h4 class="timeline-subtitle">KL Researchers Club</h4>
                     <p class="timeline-description">
@@ -675,8 +694,8 @@
 
             <!-- KL University Projects -->
             <div class="timeline-item">
+                <div class="timeline-icon"></div>
                 <div class="timeline-content">
-                    <span class="timeline-date">Aug 2023 - Jan 2024</span>
                     <h3 class="timeline-title">Team Leader (Design Thinking)</h3>
                     <h4 class="timeline-subtitle">KL University</h4>
                     <p class="timeline-description">
@@ -686,8 +705,8 @@
             </div>
 
             <div class="timeline-item">
+                <div class="timeline-icon"></div>
                 <div class="timeline-content">
-                    <span class="timeline-date">Aug 2023 - Jan 2024</span>
                     <h3 class="timeline-title">IoT Team Lead</h3>
                     <h4 class="timeline-subtitle">KL University</h4>
                     <p class="timeline-description">
@@ -696,18 +715,6 @@
                 </div>
             </div>
 
-            <!-- IOT Expo -->
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <span class="timeline-date">2023-24</span>
-                    <h3 class="timeline-title">IoT Expo Participant</h3>
-                    <h4 class="timeline-subtitle">KL University</h4>
-                    <p class="timeline-description">
-                        Demonstrated RFID-based security system project at university tech expo.
-                    </p>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- Tech Stack Section -->
@@ -874,6 +881,30 @@
             });
         });
 
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.classList.add('animated');
+        });
+
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.bottom >= 0
+            );
+        }
+
+        function animateOnScroll() {
+            document.querySelectorAll('.timeline-item.animated').forEach(item => {
+                if (isInViewport(item)) {
+                    item.classList.remove('animated');
+                    item.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+
         window.addEventListener('scroll', function() {
             const scrollPosition = window.scrollY;
 
@@ -914,29 +945,6 @@
                 this.style.transform = '';
             });
         });
-
-        const animateOnScroll = function() {
-            const elements = document.querySelectorAll('.about-section, .timeline-item, .tech-item, .skill-category');
-
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-
-                if (elementPosition < windowHeight - 100) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        };
-
-        document.querySelectorAll('.about-section, .timeline-item, .tech-item, .skill-category').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        });
-
-        window.addEventListener('load', animateOnScroll);
-        window.addEventListener('scroll', animateOnScroll);
     </script>
 </body>
 </html>
