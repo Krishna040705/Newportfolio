@@ -9,81 +9,81 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Your Original Background Styles */
+        :root {
+            --primary-color: #00bcd4;
+            --secondary-color: #0097a7;
+            --accent-color: #ff6b6b;
+            --dark-bg: #1A1A2E;
+            --darker-bg: #16213E;
+            --darkest-bg: #0F3460;
+            --card-bg: rgba(30, 30, 30, 0.8);
+            --text-light: rgba(255, 255, 255, 0.9);
+            --text-lighter: rgba(255, 255, 255, 0.7);
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to right, #1A1A2E, #16213E, #0F3460);
-            color: #fff;
+            background: linear-gradient(to right, var(--dark-bg), var(--darker-bg), var(--darkest-bg));
+            color: var(--text-light);
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            padding-top: 80px; /* Added to account for fixed navbar */
+            padding-top: 80px;
         }
 
-        /* Compact Navbar Styles */
         .about-navbar {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            border-radius: 20px;
-            padding: 12px 20px;
-            width: 1000px;
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 10px 20px;
+            width: 90%;
+            max-width: 1000px;
             margin: 15px auto;
-            box-shadow: 0px 1px 3px rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
             position: fixed;
             top: 15px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .about-navbar:hover {
-            background: rgba(255, 255, 255, 0.2) !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+            box-shadow: 0 6px 20px rgba(0, 188, 212, 0.3);
         }
 
         .about-navbar .nav-link {
             position: relative;
-            border: 2px solid transparent;
             border-radius: 10px;
-            padding: 8px 12px;
-            transition: all 0.4s ease-in-out;
+            padding: 8px 15px;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.1);
-            overflow: hidden;
-            color: white;
-            margin: 0 2px;
+            gap: 8px;
+            color: var(--text-light);
+            margin: 0 3px;
             font-size: 0.9rem;
+            font-weight: 500;
+            background: transparent;
+            border: none;
         }
 
-        .about-navbar .nav-link::before {
-            content: "";
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, #ff6b6b, #ffa07a, #ffcc70, #33cc99, #4facfe, #338aff, #6a5acd, #ff6b6b);
-            background-size: 300%;
-            border-radius: 12px;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-        }
-
-        .about-navbar .nav-link:hover::before {
-            opacity: 1;
-            animation: running-border 1.5s linear infinite;
-        }
-
-        .about-navbar .nav-link:hover, 
+        .about-navbar .nav-link:hover,
         .about-navbar .nav-link.active {
-            border-color: #ffffff;
             background: rgba(255, 255, 255, 0.2);
+            color: white;
         }
 
-        /* Special style for home button in navbar */
+        .about-navbar .nav-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .about-navbar .nav-link:hover i {
+            transform: scale(1.2);
+        }
+
         .about-navbar .home-nav-link {
             background: linear-gradient(135deg, rgba(0, 188, 212, 0.3), rgba(0, 151, 167, 0.3));
         }
@@ -92,23 +92,16 @@
             background: linear-gradient(135deg, rgba(0, 188, 212, 0.5), rgba(0, 151, 167, 0.5));
         }
 
-        @keyframes running-border {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* About Section with Your Original Background */
         .about-section {
-            background: linear-gradient(135deg, #1e1e1e, #292929);
-            padding: 80px 40px;
+            background: linear-gradient(135deg, var(--card-bg), #292929);
+            padding: 50px 30px;
             border-radius: 15px;
-            margin: 40px auto;
+            margin: 30px auto;
             max-width: 1000px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             position: relative;
-            z-index: 1; 
+            overflow: hidden;
+            z-index: 1;
         }
 
         .about-section::before {
@@ -119,29 +112,27 @@
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0.5px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 0.5px);
-            background-size: 40px 40px;
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
             border-radius: 15px;
             pointer-events: none;
             z-index: -1;
         }
 
         .about-section:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 40px rgba(0, 188, 212, 0.4);
+            box-shadow: 0 15px 40px rgba(0, 188, 212, 0.3);
         }
 
-        /* Centered Heading */
         .section-title {
             color: white;
             font-weight: 700;
-            text-shadow: white;
             margin-bottom: 30px;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             text-align: center;
-            width: 100%;
             position: relative;
+            display: inline-block;
+            width: 100%;
         }
 
         .section-title::after {
@@ -150,396 +141,385 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 60px;
             height: 3px;
-            background: #00bcd4;
+            background: var(--primary-color);
+            border-radius: 3px;
         }
 
-        /* Profile Section */
         .profile-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 40px;
-            font-family: 'Times New Roman', Times, serif;
+            margin-bottom: 30px;
+            text-align: center;
         }
 
         .profile-img {
-            width: 220px;
-            height: 220px;
+            width: 180px;
+            height: 180px;
             object-fit: cover;
             border-radius: 50%;
-            border: 4px solid #00bcd4;
-            padding: 5px;
+            border: 4px solid var(--primary-color);
             box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: all 0.4s ease;
+            margin-bottom: 20px;
         }
 
         .profile-img:hover {
             transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(0, 229, 255, 0.6);
             border-color: white;
-            box-shadow: 0 12px 25px rgba(0, 229, 255, 0.7);
-            filter: brightness(1.05);
         }
 
-        /* Info Container */
         .info-container {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(5px);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 30px auto;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px auto;
             max-width: 800px;
-            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .info-container p {
-            margin: 10px 0;
+            margin: 12px 0;
             position: relative;
             padding-left: 30px;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .info-container p::before {
-            content: "🖇️";
+            content: "•";
             position: absolute;
-            left: 0;
-            color: orangered;
-            font-size: 1.2em;
+            left: 10px;
+            color: var(--accent-color);
+            font-size: 1.5em;
+            line-height: 0;
         }
 
-        /* Tech Stack Section */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .tech-item {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(5px);
-            border-radius: 15px;
-            padding: 20px 10px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .tech-item:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 25px rgba(0, 188, 212, 0.3);
-        }
-
-        .tech-icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .tech-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* Skills & Interests Section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .skill-category {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(5px);
-            border-radius: 15px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .skill-category h4 {
-            color: #ff6b6b;
-            margin-bottom: 15px;
-            border-bottom: 2px solid rgba(255, 107, 107, 0.3);
-            padding-bottom: 8px;
-        }
-
-        .skill-item {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .skill-item i {
-            margin-right: 10px;
-            color: white;
-        }
-
-        /* Centered CTA Button */
-        .cta-container {
-            text-align: center;
-            margin-top: 40px;
-            width: 100%;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 12px 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #fff;
-            background: linear-gradient(135deg, #00bcd4, #0097a7);
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            margin: 0 auto;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 188, 212, 0.6);
-        }
-
-        /* Timeline Styles for Education and Experience */
         .timeline {
             position: relative;
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 40px 0;
+            padding: 20px 0;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            width: 4px;
-            background: linear-gradient(to bottom, #00bcd4, #0097a7);
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
             top: 0;
             bottom: 0;
             left: 50%;
-            margin-left: -2px;
-            border-radius: 10px;
+            margin-left: -1.5px;
+            border-radius: 3px;
         }
 
         .timeline-item {
-            padding: 20px 40px;
+            padding: 15px 30px;
             position: relative;
             width: 50%;
             box-sizing: border-box;
+            margin-bottom: 20px;
         }
 
         .timeline-item:nth-child(odd) {
             left: 0;
-            padding-right: 80px;
+            padding-right: 50px;
             text-align: right;
         }
 
         .timeline-item:nth-child(even) {
             left: 50%;
-            padding-left: 80px;
+            padding-left: 50px;
             text-align: left;
         }
 
         .timeline-content {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(5px);
-            border-radius: 15px;
-            padding: 25px;
+            border-radius: 12px;
+            padding: 20px;
             position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .timeline-content:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 188, 212, 0.3);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            top: 30px;
-            background: #00bcd4;
-            transform: rotate(45deg);
-            border-radius: 3px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            left: -10px;
-            top: 30px;
-            background: #00bcd4;
-            transform: rotate(45deg);
-            border-radius: 3px;
+            box-shadow: 0 8px 25px rgba(0, 188, 212, 0.3);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .timeline-date {
             display: inline-block;
-            background: #00bcd4;
+            background: var(--primary-color);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 15px;
-            box-shadow: 0 3px 10px rgba(0, 188, 212, 0.4);
+            margin-bottom: 10px;
+            box-shadow: 0 3px 10px rgba(0, 188, 212, 0.3);
         }
 
         .timeline-title {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: #00bcd4;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
         }
 
         .timeline-subtitle {
-            font-size: 1rem;
+            font-size: 0.9rem;
             margin-bottom: 10px;
-            color: #ff6b6b;
+            color: var(--accent-color);
             font-weight: 500;
         }
 
         .timeline-description {
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: var(--text-lighter);
         }
 
         .timeline-item::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #00bcd4;
-            border: 4px solid #1e1e1e;
+            width: 16px;
+            height: 16px;
+            background: var(--primary-color);
+            border: 3px solid var(--dark-bg);
             border-radius: 50%;
-            top: 30px;
+            top: 25px;
             z-index: 1;
         }
 
         .timeline-item:nth-child(odd)::after {
-            right: -10px;
+            right: -8px;
         }
 
         .timeline-item:nth-child(even)::after {
-            left: -10px;
+            left: -8px;
         }
 
-        /* Responsive Timeline */
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 40px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 90px;
-                padding-right: 25px;
-                text-align: left !important;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-item:nth-child(odd) .timeline-content::before,
-            .timeline-item:nth-child(even) .timeline-content::before {
-                left: 30px;
-                right: auto;
-            }
-            
-            .timeline-item::after {
-                left: 30px !important;
-            }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        /* Animations */
-        @keyframes glow {
-            0% { box-shadow: 0 0 10px rgba(0, 188, 212, 0.6); }
-            50% { box-shadow: 0 0 20px rgba(0, 188, 212, 0.8); }
-            100% { box-shadow: 0 0 10px rgba(0, 188, 212, 0.6); }
+        .tech-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            padding: 15px 5px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
-        .profile-img {
-            animation: glow 3s infinite ease-in-out;
+        .tech-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.3);
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .about-navbar {
-                width: 95%;
-            }
-            
-            .about-section {
-                max-width: 95%;
-            }
+        .tech-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .tech-name {
+            font-weight: 500;
+            font-size: 0.8rem;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-category h4 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-item {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .skill-item i {
+            margin-right: 8px;
+            color: var(--primary-color);
+            font-size: 0.8rem;
+        }
+
+        .cta-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+            transition: all 0.3s ease;
+            gap: 8px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 188, 212, 0.6);
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .about-section {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .profile-img:hover {
+            animation: float 3s ease-in-out infinite;
         }
 
         @media (max-width: 768px) {
             body {
                 padding-top: 70px;
             }
-            
-            .about-section {
-                padding: 50px 15px;
-                margin: 30px 15px;
-            }
-            
-            .profile-img {
-                width: 180px;
-                height: 180px;
-            }
-            
-            .tech-grid {
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-                gap: 15px;
-            }
-            
+
             .about-navbar {
-                padding: 10px 15px;
                 width: 95%;
+                padding: 8px 15px;
             }
-            
+
             .about-navbar .nav-link {
-                padding: 8px 10px;
+                padding: 6px 10px;
                 font-size: 0.85rem;
-                margin: 0 1px;
             }
-            
-            /* Stack navbar items vertically on mobile */
-            .about-navbar .navbar-collapse {
-                background: rgba(26, 26, 46, 0.9);
-                border-radius: 15px;
-                padding: 15px;
-                margin-top: 10px;
+
+            .about-section {
+                padding: 40px 20px;
+                margin: 25px 15px;
+            }
+
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                text-align: left !important;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 22px !important;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: 30px;
+                right: auto;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 10px;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 576px) {
             .about-navbar .nav-link {
-                padding: 6px 8px;
+                padding: 5px 8px;
                 font-size: 0.8rem;
-                gap: 4px;
             }
-            
+
             .about-navbar .nav-link i {
                 font-size: 0.9rem;
             }
-            
+
+            .info-container p {
+                font-size: 0.85rem;
+                padding-left: 25px;
+            }
+
             .timeline-content {
                 padding: 15px;
             }
-            
+
             .timeline-title {
-                font-size: 1.1rem;
+                font-size: 1rem;
+            }
+
+            .timeline-subtitle {
+                font-size: 0.85rem;
+            }
+
+            .timeline-description {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -552,7 +532,7 @@
                 <i class="fas fa-bars" style="color: white;"></i>
             </button>
             <div class="collapse navbar-collapse" id="aboutNavbar">
-                <ul class="navbar-nav mx-auto d-flex flex-row">
+                <ul class="navbar-nav mx-auto d-flex flex-row flex-wrap justify-content-center">
                     <li class="nav-item">
                         <a class="nav-link" href="#about-me">
                             <i class="fas fa-user"></i> About
@@ -591,13 +571,12 @@
     <!-- About Me Section -->
     <section id="about-me" class="about-section">
         <h2 class="section-title">About Me</h2>
-   
+
         <div class="profile-container">
             <img src="IMG11.jpg" alt="Keerti Krishna Sreenivas S" class="profile-img">
-            <br>
             <h2>KEERTI KRISHNA SREENIVAS SADASIVUNI</h2>
         </div>
-        
+
         <div class="info-container">
             <p><strong>Age:</strong> 20</p>
             <p><strong>Work:</strong> Student at KL University, B.Tech 2nd Year</p>
@@ -615,7 +594,7 @@
     <!-- Education Section -->
     <section id="education" class="about-section">
         <h2 class="section-title">Education</h2>
-        
+
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-content">
@@ -624,21 +603,20 @@
                     <h4 class="timeline-subtitle">KL University</h4>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-content">
                     <span class="timeline-date">2020 - 2022</span>
                     <h3 class="timeline-title">Intermediate Education</h3>
-                    <h4 class="timeline-subtitle">Sri Chaitanya PU/CBSE College,Bengaluru</h4>
-                   
+                    <h4 class="timeline-subtitle">Sri Chaitanya PU/CBSE College, Bengaluru</h4>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-content">
                     <span class="timeline-date">2020</span>
                     <h3 class="timeline-title">School Education</h3>
-                    <h4 class="timeline-subtitle">Sri Chaitanya Techno School,Bengaluru</h4>
+                    <h4 class="timeline-subtitle">Sri Chaitanya Techno School, Bengaluru</h4>
                 </div>
             </div>
         </div>
@@ -646,44 +624,86 @@
 
     <!-- Experience Section -->
     <section id="experience" class="about-section">
-        <h2 class="section-title">Experience</h2>
-        
+        <h2 class="section-title">Professional Journey</h2>
         <div class="timeline">
+            <!-- Current Roles -->
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <span class="timeline-date">Aug 2023 - Present</span>
-                    <h3 class="timeline-title">Team Lead</h3>
-                    <h4 class="timeline-subtitle">KL University</h4>
+                    <span class="timeline-date">Dec 2024 - Present</span>
+                    <h3 class="timeline-title">GDG Member</h3>
+                    <h4 class="timeline-subtitle">GDG Bangalore</h4>
                     <p class="timeline-description">
-                        Leading a team of developers in university projects.
-                        Coordinating between team members and ensuring project deadlines are met.
-                        Implementing agile methodologies in project development.
+                        Active member of Google Developer Group Bangalore, participating in tech workshops, hackathons, and community events.
                     </p>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <span class="timeline-date">Jun 2024 - Dec 2024</span>
-                    <h3 class="timeline-title">Virtual Internship</h3>
+                    <span class="timeline-date">Jan 2024 - Present</span>
+                    <h3 class="timeline-title">Hack Club Member</h3>
+                    <h4 class="timeline-subtitle">Hack Club</h4>
+                    <p class="timeline-description">
+                        Contributor to open-source projects and coding initiatives through Hack Club's global developer community.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Internship -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">May 2024 - Jul 2024</span>
+                    <h3 class="timeline-title">Networking Intern</h3>
                     <h4 class="timeline-subtitle">Cisco Networking Academy</h4>
                     <p class="timeline-description">
-                        Completed a virtual internship in networking fundamentals.
-                        Gained hands-on experience with Cisco Packet Tracer.
-                        Learned about network configurations and troubleshooting.
+                        Completed AICTE Virtual Internship focusing on networking fundamentals (TCP/IP, DNS, DHCP) and security protocols.
                     </p>
                 </div>
             </div>
-            
+
+            <!-- Researcher Club -->
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <span class="timeline-date"></span>
-                    <h3 class="timeline-title">Team Leader</h3>
-                    <h4 class="timeline-subtitle">University Project</h4>
+                    <span class="timeline-date">2024</span>
+                    <h3 class="timeline-title">Drafting Manager</h3>
+                    <h4 class="timeline-subtitle">KL Researchers Club</h4>
                     <p class="timeline-description">
-                        Led a team of 5 members in developing a web application.
-                        Designed the front-end using React and back-end with Spring Boot.
-                        Successfully delivered the project before deadline.
+                        Oversaw technical documentation and research paper formatting for university publications.
+                    </p>
+                </div>
+            </div>
+
+            <!-- KL University Projects -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">Aug 2023 - Jan 2024</span>
+                    <h3 class="timeline-title">Team Leader (Design Thinking)</h3>
+                    <h4 class="timeline-subtitle">KL University</h4>
+                    <p class="timeline-description">
+                        Led "Project Green Milk Packaging" initiative to reduce plastic waste using sustainable alternatives.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">Aug 2023 - Jan 2024</span>
+                    <h3 class="timeline-title">IoT Team Lead</h3>
+                    <h4 class="timeline-subtitle">KL University</h4>
+                    <p class="timeline-description">
+                        Designed RFID-based door locking system using Arduino Uno for secure access control.
+                    </p>
+                </div>
+            </div>
+
+            <!-- IOT Expo -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2023-24</span>
+                    <h3 class="timeline-title">IoT Expo Participant</h3>
+                    <h4 class="timeline-subtitle">KL University</h4>
+                    <p class="timeline-description">
+                        Demonstrated RFID-based security system project at university tech expo.
                     </p>
                 </div>
             </div>
@@ -693,7 +713,7 @@
     <!-- Tech Stack Section -->
     <section id="tech-stack" class="about-section">
         <h2 class="section-title">My Tech Stack</h2>
-        
+
         <div class="tech-grid">
             <div class="tech-item">
                 <i class="fab fa-html5 tech-icon" style="color: #E34F26;"></i>
@@ -753,7 +773,7 @@
     <!-- Skills & Interests Section -->
     <section id="skills-interests" class="about-section">
         <h2 class="section-title">Skills & Interests</h2>
-        
+
         <div class="skills-container">
             <div class="skill-category">
                 <h4><i class="fas fa-laptop-code"></i> Technical Skills</h4>
@@ -778,7 +798,7 @@
                     <span>Database Management</span>
                 </div>
             </div>
-            
+
             <div class="skill-category">
                 <h4><i class="fas fa-language"></i> Languages</h4>
                 <div class="skill-item">
@@ -798,7 +818,7 @@
                     <span>Kannada (Native)</span>
                 </div>
             </div>
-            
+
             <div class="skill-category">
                 <h4><i class="fas fa-heart"></i> Interests</h4>
                 <div class="skill-item">
@@ -823,43 +843,44 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="cta-container">
-            <a href="Contact.html" class="cta-button">Get in Touch</a>
+            <a href="Contact.html" class="cta-button">
+                <i class="fas fa-paper-plane"></i> Get in Touch
+            </a>
         </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Smooth scrolling for navigation
+
         document.querySelectorAll('.about-navbar .nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 if (this.getAttribute('href').startsWith('#')) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Update active state
+
                     document.querySelectorAll('.about-navbar .nav-link').forEach(navLink => {
                         navLink.classList.remove('active');
                     });
                     this.classList.add('active');
+
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
 
-        // Update active nav link on scroll
         window.addEventListener('scroll', function() {
             const scrollPosition = window.scrollY;
-            
+
             document.querySelectorAll('.about-section').forEach(section => {
                 const sectionTop = section.offsetTop - 100;
                 const sectionBottom = sectionTop + section.offsetHeight;
-                
+
                 if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                     const id = section.getAttribute('id');
                     document.querySelectorAll('.about-navbar .nav-link').forEach(link => {
@@ -872,15 +893,50 @@
             });
         });
 
-        // Simple hover effect for tech items
         document.querySelectorAll('.tech-item').forEach(item => {
             item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px)';
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 10px 20px rgba(0, 188, 212, 0.4)';
             });
+
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+        });
+
+        document.querySelectorAll('.timeline-content').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+
             item.addEventListener('mouseleave', function() {
                 this.style.transform = '';
             });
         });
+
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.about-section, .timeline-item, .tech-item, .skill-category');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        document.querySelectorAll('.about-section, .timeline-item, .tech-item, .skill-category').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
     </script>
 </body>
 </html>
