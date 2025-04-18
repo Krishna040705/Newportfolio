@@ -26,7 +26,7 @@
             backdrop-filter: blur(5px);
             border-radius: 20px;
             padding: 12px 20px;
-            width: 900px;
+            width: 1000px;
             margin: 15px auto;
             box-shadow: 0px 1px 3px rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease-in-out;
@@ -101,10 +101,10 @@
         /* About Section with Your Original Background */
         .about-section {
             background: linear-gradient(135deg, #1e1e1e, #292929);
-            padding: 80px 20px;
+            padding: 80px 40px;
             border-radius: 15px;
             margin: 40px auto;
-            max-width: 900px;
+            max-width: 1000px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             position: relative;
@@ -189,7 +189,7 @@
             border-radius: 15px;
             padding: 30px;
             margin: 30px auto;
-            max-width: 700px;
+            max-width: 800px;
             text-align: left;
         }
 
@@ -304,6 +304,163 @@
             box-shadow: 0 8px 25px rgba(0, 188, 212, 0.6);
         }
 
+        /* Timeline Styles for Education and Experience */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, #00bcd4, #0097a7);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 80px;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 80px;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 188, 212, 0.3);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            top: 30px;
+            background: #00bcd4;
+            transform: rotate(45deg);
+            border-radius: 3px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: -10px;
+            top: 30px;
+            background: #00bcd4;
+            transform: rotate(45deg);
+            border-radius: 3px;
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background: #00bcd4;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0, 188, 212, 0.4);
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #00bcd4;
+        }
+
+        .timeline-subtitle {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #ff6b6b;
+            font-weight: 500;
+        }
+
+        .timeline-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #00bcd4;
+            border: 4px solid #1e1e1e;
+            border-radius: 50%;
+            top: 30px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        /* Responsive Timeline */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 40px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 90px;
+                padding-right: 25px;
+                text-align: left !important;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: 30px;
+                right: auto;
+            }
+            
+            .timeline-item::after {
+                left: 30px !important;
+            }
+        }
+
         /* Animations */
         @keyframes glow {
             0% { box-shadow: 0 0 10px rgba(0, 188, 212, 0.6); }
@@ -316,6 +473,16 @@
         }
 
         /* Responsive */
+        @media (max-width: 992px) {
+            .about-navbar {
+                width: 95%;
+            }
+            
+            .about-section {
+                max-width: 95%;
+            }
+        }
+
         @media (max-width: 768px) {
             body {
                 padding-top: 70px;
@@ -366,6 +533,14 @@
             .about-navbar .nav-link i {
                 font-size: 0.9rem;
             }
+            
+            .timeline-content {
+                padding: 15px;
+            }
+            
+            .timeline-title {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -381,6 +556,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#about-me">
                             <i class="fas fa-user"></i> About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">
+                            <i class="fas fa-graduation-cap"></i> Education
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">
+                            <i class="fas fa-briefcase"></i> Experience
                         </a>
                     </li>
                     <li class="nav-item">
@@ -424,6 +609,84 @@
             <p><strong>Internship:</strong> Virtual Internship in Cisco Networking</p>
             <p><strong>Achievements:</strong> LeetCode Badges</p>
             <p><strong>Skills:</strong> Java, C Language, Full-Stack Development</p>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="about-section">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2023 - Present</span>
+                    <h3 class="timeline-title">Bachelor of Technology</h3>
+                    <h4 class="timeline-subtitle">KL University</h4>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2020 - 2022</span>
+                    <h3 class="timeline-title">Intermediate Education</h3>
+                    <h4 class="timeline-subtitle">Sri Chaitanya PU/CBSE College,Bengaluru</h4>
+                   
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">2020</span>
+                    <h3 class="timeline-title">School Education</h3>
+                    <h4 class="timeline-subtitle">Sri Chaitanya Techno School,Bengaluru</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="about-section">
+        <h2 class="section-title">Experience</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">Aug 2023 - Present</span>
+                    <h3 class="timeline-title">Team Lead</h3>
+                    <h4 class="timeline-subtitle">KL University</h4>
+                    <p class="timeline-description">
+                        Leading a team of developers in university projects.
+                        Coordinating between team members and ensuring project deadlines are met.
+                        Implementing agile methodologies in project development.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date">Jun 2024 - Dec 2024</span>
+                    <h3 class="timeline-title">Virtual Internship</h3>
+                    <h4 class="timeline-subtitle">Cisco Networking Academy</h4>
+                    <p class="timeline-description">
+                        Completed a virtual internship in networking fundamentals.
+                        Gained hands-on experience with Cisco Packet Tracer.
+                        Learned about network configurations and troubleshooting.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span class="timeline-date"></span>
+                    <h3 class="timeline-title">Team Leader</h3>
+                    <h4 class="timeline-subtitle">University Project</h4>
+                    <p class="timeline-description">
+                        Led a team of 5 members in developing a web application.
+                        Designed the front-end using React and back-end with Spring Boot.
+                        Successfully delivered the project before deadline.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
