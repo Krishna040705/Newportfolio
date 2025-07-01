@@ -877,3 +877,7 @@ body {
         font-size: 1.8rem;
     }
 }
+.screenshot-image {
+    /* OR */
+    top: -60%; /* Pull image upward (adjust percentage as needed) */
+}
