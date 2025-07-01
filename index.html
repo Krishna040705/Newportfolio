@@ -344,10 +344,8 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title text-center">Gradely</h5>
                 <p class="card-text flex-grow-1">
-                    Gradely is a comprehensive academic toolkit for KL University students, featuring 
-                    SGPA/CGPA calculators and attendance tracking. This Netlify-hosted web app helps 
-                    students monitor their academic progress with intuitive grade calculation tools 
-                    tailored for KLU's grading system.
+                Gradely is a smart academic tool designed especially for students of KL University (Vijayawada & Hyderabad). Built using HTML, CSS, JavaScript, Bootstrap, and integrated with useful APIs, it offers smooth transitions and a clean user interface. Gradely helps students calculate their SGPA, CGPA, and attendance with ease, all in one place. It's fast, reliable, and built to simplify academic tracking for a better student experience.
+
                 </p>
                 <div class="d-flex justify-content-between mt-auto gap-2">
                     <a href="https://gradely.netlify.app/" class="btn btn-primary btn-view" target="_blank">
@@ -381,7 +379,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title text-center">Climate 25</h5>
-                    <p class="card-text flex-grow-1">A user-friendly website providing real-time weather updates for cities worldwide. Built using HTML, CSS, JavaScript, and Bootstrap, it offers a clean and responsive interface optimized for desktops and PCs.</p>
+                    <p class="card-text flex-grow-1">A user-friendly website that delivers real-time weather updates for cities across the globe. It features a clean, responsive, and intuitive interface, making it easy for users to check current weather conditions, temperature, humidity, and more. Designed with a focus on smooth user experience, the site works seamlessly on desktops and PCs, providing quick access to reliable weather information in a clear and organized layout. Ideal for everyday users who want instant updates without any clutter.</p>
                     <div class="d-flex justify-content-between mt-auto gap-2">
                         <a href="https://climate25.netlify.app/" class="btn btn-primary btn-view" target="_blank">
                             <i class="fas fa-external-link-alt me-1"></i> View Project
@@ -430,7 +428,232 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
     </div>
 </section>
+<section class="counter-section">
+  <div class="counter-container">
 
+    <div class="counter">
+      <span class="number" id="projects-counter">0</span>
+      <span class="label">Projects Completed</span>
+    </div>
+    <div class="counter">
+      <span class="number" id="experience-counter">0</span>
+      <span class="label">Years of Experience</span>
+    </div>
+    <div class="counter">
+      <a href="https://github.com/Krishna040705?tab=repositories" target="_blank" class="repo-link">
+        <span class="number" id="repos-counter">0</span>
+        <span class="label">Git Repositories</span>
+      </a>
+    </div>
+    <div class="counter"> 
+      <a href="certificates.html" class="cert-link">
+        <span class="number" id="certs-counter">0</span>
+        <span class="label">Global Certifications</span>
+      </a>
+    </div>
+  </div>
+</section>
+<br>
+<br>
+
+<script>
+  // Configuration
+  const COUNTER_VALUES = {
+    "projects-counter": 5,      // Your 5 completed projects
+    "experience-counter": 1,    // Your 1 year experience
+    "certs-counter": 2          // Your 2 certifications
+  };
+
+  // Animate with easing (fast → slow)
+  function animateValue(id, start, end, duration = 1500) {
+    const obj = document.getElementById(id);
+    let startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const progress = timestamp - startTime;
+
+      // Ease-out effect using easeOutCubic
+      const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+      const percent = Math.min(progress / duration, 1);
+      const eased = easeOutCubic(percent);
+      const current = Math.floor(start + (end - start) * eased);
+
+      obj.innerHTML = current;
+
+      if (percent < 1) {
+        requestAnimationFrame(step);
+      } else {
+        obj.innerHTML = end; // Ensure final value
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  // Fetch GitHub repo count
+  async function getRepoCount() {
+    try {
+      const response = await fetch('https://api.github.com/users/Krishna040705');
+      if (!response.ok) throw new Error('GitHub API error');
+      const data = await response.json();
+      return data.public_repos;
+    } catch (error) {
+      console.error('Failed to fetch repo count:', error);
+      return 31; // Fallback
+    }
+  }
+
+  // Run counters once when in view
+  function runCountersOnce(repoCount) {
+    Object.keys(COUNTER_VALUES).forEach(id => {
+      animateValue(id, 0, COUNTER_VALUES[id]);
+    });
+    animateValue("repos-counter", 0, repoCount);
+  }
+
+  // Initialize on scroll into view
+  document.addEventListener('DOMContentLoaded', async function () {
+    const repoCount = await getRepoCount();
+    const counterSection = document.querySelector('.counter-section');
+    let animated = false; // To ensure animation happens only once
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !animated) {
+          counterSection.classList.add('animate-in');
+          runCountersOnce(repoCount);
+          animated = true;
+          obs.unobserve(counterSection); // Stop observing
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(counterSection);
+  });
+</script>
+
+
+<style>
+  .counter-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+    border: 0.5px white solid;
+    border-radius: 20px;
+    /* padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px; */
+    margin-left: 60px;
+    margin-right: 60px;
+    padding: 20px;
+  }
+  
+  .counter-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="rgba(255,255,255,0.05)"><circle cx="25" cy="25" r="1"/><circle cx="75" cy="75" r="1"/><circle cx="75" cy="25" r="1"/><circle cx="25" cy="75" r="1"/></svg>'),
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="rgba(255,255,255,0.03)"><rect x="10" y="10" width="5" height="5"/><rect x="85" y="85" width="5" height="5"/></svg>');
+    background-size: 100px 100px, 50px 50px;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  
+  .counter-section.animate-in::before {
+    opacity: 1;
+  }
+  
+  .counter-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  .counter-section.animate-in .counter-container {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .counter {
+    text-align: center;
+    min-width: 200px;
+    padding: 30px 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .counter:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  .number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    display: block;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+  }
+  
+  .label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+  
+  .cert-link, .repo-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  
+  .cert-link:hover .number {
+    color: #4fc3f7;
+  }
+  
+  .repo-link:hover .number {
+    color: #8a63d2;
+  }
+  
+  @media (max-width: 900px) {
+    .counter-container {
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .counter {
+      min-width: calc(50% - 30px);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .counter {
+      min-width: 100%;
+    }
+  }
+</style>
 <style>
     .project-card {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
