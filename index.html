@@ -112,12 +112,12 @@ document.addEventListener("DOMContentLoaded", function() {
                         <span class="nav-text">Certificates</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="Keerti Krishna Sreenivas S - Resume.pdf" target="_blank">
                         <span class="nav-icon"><i class="fas fa-file-alt"></i></span>
                         <span class="nav-text">Resume</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html" >
                         <span class="nav-icon"><i class="fas fa-envelope"></i></span>
@@ -236,68 +236,175 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   </script>
 
-<header class="hero text-center text-light py-5">
-    <div class="typing-container">
-        <h1 id="changing-text" class="animate__animated animate__fadeIn"></h1>
+<header class="hero text-center text-light py-5 custom-hero-spacing">
+    <h1 class="main-heading typing-name" id="name-heading"></h1>
+
+    <div class="typing-container mt-3">
+        <h2 id="changing-text" class="typing-letters"></h2>
+    </div>
+
+    <div class="cta-buttons mt-4 hidden fade-in" id="cta-buttons">
+        <a href="your-resume-link.pdf" class="btn-custom" target="_blank" rel="noopener noreferrer">
+            📄 Resume
+        </a>
+        <a href="https://www.linkedin.com/in/your-linkedin-profile" class="btn-custom" target="_blank" rel="noopener noreferrer">
+            🔗 LinkedIn
+        </a>
     </div>
 </header>
 
-<script>
-    const texts = [
-    "Welcome to My Portfolio",
-  "I'm Keerti Krishna Sreenivas Sadasivuni",
-  "Learning Full Stack Development",
-  "Student at KL Deemed to be University",
-  "Exploring the world of code and creativity",
-  "Passionate about building functional solutions",
-  "Growing my skills one commit at a time",
-  "From algorithmic puzzles to architectural sketches",
-  "Building with both logic and imagination",
-  "Open to meaningful collaborations",
-  "Let's create something worthwhile together",
-  "A continuous work in progress"
-    ];
+<style>
+  header.hero {
+    margin-top: 35px; 
+  }
 
-    const textElement = document.getElementById('changing-text');
-    let currentIndex = 0;
-    let isDeleting = false;
-    let currentText = "";
-    let typingSpeed = 100;
-    let pauseBetween = 2000;
+  .cta-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+  }
 
-    function typeText() {
-        const fullText = texts[currentIndex];
+  .fade-in.show {
+    opacity: 1;
+  }
 
-        if (isDeleting) {
-            currentText = fullText.substring(0, currentText.length - 1);
-        } else {
-            currentText = fullText.substring(0, currentText.length + 1);
-        }
+  .hidden {
+    display: none;
+  }
 
-        textElement.textContent = currentText;
+  .btn-custom {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
 
-        let delta = typingSpeed;
+  .btn-custom:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    color: #fff;
+  }
 
-        if (isDeleting) {
-            delta /= 2; 
-        }
+  .main-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+  }
 
-        if (!isDeleting && currentText === fullText) {
-            delta = pauseBetween;
-            isDeleting = true;
-        } else if (isDeleting && currentText === "") {
-            isDeleting = false;
-            currentIndex = (currentIndex + 1) % texts.length;
-            delta = 500; 
-        }
+  .typing-letters {
+    font-size: 1.5rem;
+    color: #f8f9fa;
+    display: inline-block;
+    white-space: nowrap;
+  }
 
-        setTimeout(typeText, delta);
+  .letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    animation: letterFadeIn 0.5s forwards;
+  }
+
+  .space {
+    display: inline-block;
+    width: 0.4em;
+  }
+
+  @keyframes letterFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
+  }
+</style>
 
-    document.addEventListener("DOMContentLoaded", function() {
-        setTimeout(typeText, 1000);
+<script>
+  const nameText = "I'm Keerti Krishna Sreenivas Sadasivuni";
+  const nameElement = document.getElementById("name-heading");
+
+  function typeNameOnce(callback) {
+    [...nameText].forEach((char, i) => {
+      const span = document.createElement("span");
+
+      if (char === " ") {
+        span.className = "space";
+        span.innerHTML = "&nbsp;";
+      } else {
+        span.className = "letter";
+        span.textContent = char;
+        span.style.animationDelay = `${i * 60}ms`;
+      }
+
+      nameElement.appendChild(span);
     });
+
+    setTimeout(() => {
+      // Reveal CTA buttons after name typing animation
+      const cta = document.getElementById("cta-buttons");
+      cta.classList.remove("hidden");
+      requestAnimationFrame(() => cta.classList.add("show")); // Triggers fade-in
+      callback();
+    }, nameText.length * 60 + 1000);
+  }
+
+const texts = [
+  "👨‍💻 Learning DSA step by step — one problem at a time",
+  "💻 Exploring full stack development through real projects",
+  "📘 Still figuring things out, but getting better each day",
+  "🧠 Interested in how AI can solve real-world problems",
+  "🔍 Trying to write cleaner and more meaningful code",
+  "🚧 Building, breaking, and learning from mistakes",
+  "🛠 Turning small ideas into working web apps",
+  "📊 Learning how to work with data and visualize insights",
+  "🎯 Focused on consistency, not perfection",
+  "🚀 Just getting started — and excited for what’s next"
+];
+
+
+  const textElement = document.getElementById("changing-text");
+  let currentIndex = 0;
+
+  function showNextText() {
+    const fullText = texts[currentIndex];
+    textElement.innerHTML = "";
+
+    [...fullText].forEach((char, i) => {
+      const span = document.createElement("span");
+
+      if (char === " ") {
+        span.className = "space";
+        span.innerHTML = "&nbsp;";
+      } else {
+        span.className = "letter";
+        span.textContent = char;
+        span.style.animationDelay = `${i * 60}ms`;
+      }
+
+      textElement.appendChild(span);
+    });
+
+    currentIndex = (currentIndex + 1) % texts.length;
+    setTimeout(showNextText, fullText.length * 60 + 2500);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    typeNameOnce(showNextText);
+  });
 </script>
+
+
 
 <section id="projects" class="container my-5">
   <center><h1 class="text-center mb-4">Projects</h1></center>  
@@ -515,6 +622,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 <style>
+  .main-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.typing-container h2 {
+    font-size: 1.5rem;
+    color: #f8f9fa;
+}
+
+  .main-heading1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.typing-container1 h2 {
+    font-size: 1.5rem;
+    color: #f8f9fa;
+}
+
   .counter-section {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     padding: 60px 20px;
