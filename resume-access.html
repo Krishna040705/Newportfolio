@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resume Access</title>
+</head>
+<body>
+<h3>Enter details to download resume</h3>
+
+<form id="resumeForm">
+  <input type="text" name="name" placeholder="Your Name" required><br>
+  <input type="email" name="email" placeholder="Your Email" required><br>
+  <input type="text" name="company" placeholder="Company"><br>
+  <input type="hidden" name="ip" id="ip">
+  <button type="submit">Download Resume</button>
+</form>
+
+<script>
+fetch("https://api.ipify.org?format=json")
+.then(res => res.json())
+.then(data => document.getElementById("ip").value = data.ip);
+
+document.getElementById("resumeForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  fetch("YOUR_GOOGLE_SCRIPT_URL",{
+    method:"POST",
+    body:new FormData(this)
+  }).then(()=>{
+    window.location.href="Krishna_Sreenivas_S_Resume.pdf";
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,3 +1,30 @@
+.nav-bunny {
+    position: fixed;
+    top: 78px; /* perfect placement below navbar */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.bunny-img {
+    width: 70px;                 /* small & cute */
+    filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.25));
+    animation: bunnyNod 2.2s ease-in-out infinite;
+    transform-origin: center top;
+}
+
+@keyframes bunnyNod {
+    0%   { transform: rotate(0deg); }
+    25%  { transform: rotate(3deg); }
+    50%  { transform: rotate(0deg); }
+    75%  { transform: rotate(-3deg); }
+    100% { transform: rotate(0deg); }
+}
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 .glitch {
